@@ -7,11 +7,38 @@
   if (!CFG || !CFG.url || !CFG.key || !window.supabase) return;
   const sb = window.supabase.createClient(CFG.url, CFG.key, { realtime: { params: { eventsPerSecond: 40 } } });
   window.__btSb = sb;   // the game's weekly leaderboard uses the same connection
-  const ME = Math.random().toString(36).slice(2, 10) + Math.random().toString(36).slice(2, 6);
+  if (!window.crypto || !crypto.subtle) return;
+  // Who is who: each tab makes its own signing key, and its player id is a hash of the public key.
+  // Every message over the shared Supabase channel is signed, so nobody can speak as somebody else
+  // (fake "bye" to kick a player, fake offers to listen in on voice, fake presence).
+  // The direct links are safe once set up: their encryption key is fixed by the signed offer/answer.
+  const enc = new TextEncoder();
+  const b64 = (buf) => { const u = new Uint8Array(buf); let s = ''; for (let i = 0; i < u.length; i++) s += String.fromCharCode(u[i]); return btoa(s).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, ''); };
+  const unb64 = (t) => { const s = atob(t.replace(/-/g, '+').replace(/_/g, '/')); const u = new Uint8Array(s.length); for (let i = 0; i < s.length; i++) u[i] = s.charCodeAt(i); return u; };
+  const ALG = { name: 'ECDSA', namedCurve: 'P-256' }, SIG = { name: 'ECDSA', hash: 'SHA-256' };
+  const idOf = async (raw) => b64(await crypto.subtle.digest('SHA-256', raw)).slice(0, 16);
+  let ME = null, myKey = null, myPub = '', seqOut = 0;
+  const keys = new Map();   // public key text -> Promise<{ id, key }>
+  const ready = (async () => {
+    const kp = await crypto.subtle.generateKey(ALG, false, ['sign', 'verify']);
+    const raw = await crypto.subtle.exportKey('raw', kp.publicKey);
+    myKey = kp.privateKey; myPub = b64(raw); ME = await idOf(raw);
+    window.__btNet.ME = ME;
+  })();
+  function peerKey(k) {
+    let e = keys.get(k);
+    if (!e) {
+      e = (async () => { const raw = unb64(k); return { id: await idOf(raw), key: await crypto.subtle.importKey('raw', raw, ALG, false, ['verify']) }; })();
+      e.catch(() => keys.delete(k));
+      if (keys.size > 500) keys.clear();
+      keys.set(k, e);
+    }
+    return e;
+  }
   const ICE = { iceServers: [{ urls: ['stun:stun.l.google.com:19302', 'stun:stun1.l.google.com:19302'] }] };
   const rooms = new Map();
   const stats = { sbSent: 0, dcSent: 0, dcOpen: 0, fallback: 0 };
-  window.__btNet = { ME, stats, rooms };
+  window.__btNet = { ME: null, stats, rooms };
 
   function mkRoom(name, lobby) {
     const ch = sb.channel('bt-' + name, { config: { broadcast: { self: false, ack: false } } });
@@ -19,7 +46,8 @@
     const listeners = new Set(), connL = new Set();
     // voice: one audio line per player, set up with the connection; the mic is switched in and out without re-connecting
     let mic = null; const voiceOk = new Map(), audioL = new Set();
-    const sendVoice = (p, o) => { if (o && o.tx) o.tx.sender.replaceTrack(mic && voiceOk.get(p) !== false ? mic : null).catch(() => {}); };
+    // only to players the game has said may hear us (team mates in the match); nobody else, by default
+    const sendVoice = (p, o) => { if (o && o.tx) o.tx.sender.replaceTrack(mic && voiceOk.get(p) === true ? mic : null).catch(() => {}); };
     const gotTrack = (p, e) => {
       if (e.track.kind !== 'audio') return;
       const st = (e.streams && e.streams[0]) || new MediaStream([e.track]);
@@ -34,11 +62,34 @@
       const ch2 = { peers: snap, joined: [], left: [], updated: [] };
       for (const f of listeners) try { f(ch2); } catch (e) {}
     };
-    const sbSend = (m) => { if (left) return; stats.sbSent++; ch.send({ type: 'broadcast', event: 'm', payload: m }).catch(() => {}); };
+    // signed send: room name + an always-growing number go inside the signature, so a message can't be replayed later or in another room
+    let txChain = Promise.resolve();
+    const sbSend = (m) => {
+      if (left) return; stats.sbSent++;
+      seqOut = Math.max(seqOut + 1, Date.now() * 1000);
+      const b = JSON.stringify({ ...m, r: name, q: seqOut });
+      txChain = txChain.then(async () => {
+        const s = b64(await crypto.subtle.sign(SIG, myKey, enc.encode(b)));
+        await ch.send({ type: 'broadcast', event: 'm', payload: { b, k: myPub, s } });
+      }).catch(() => {});
+    };
+    const lastQ = new Map();   // peer -> newest message number seen in this room
+    async function verify(pl) {
+      if (!pl || typeof pl.b !== 'string' || typeof pl.k !== 'string' || typeof pl.s !== 'string' || pl.b.length > 300000 || pl.k.length > 120 || pl.s.length > 200) return null;
+      const e = await peerKey(pl.k);
+      if (!(await crypto.subtle.verify(SIG, e.key, unb64(pl.s), enc.encode(pl.b)))) return null;
+      const m = JSON.parse(pl.b);
+      if (!m || m.p !== e.id || m.r !== name || typeof m.q !== 'number') return null;
+      if (!(m.q > (lastQ.get(m.p) || 0))) return null;
+      if (Math.abs(m.q / 1000 - Date.now()) > 864e5) return null;   // a day off: a replay (allows for badly set clocks)
+      lastQ.set(m.p, m.q);
+      return m;
+    }
     const peer = (p) => { let o = others.get(p); if (!o) { o = { presence: null, v: -1, t: 0, seen: Date.now(), firstSeen: Date.now() }; others.set(p, o); } return o; };
     const gotPres = (p, pv, pr) => {
       const o = peer(p); o.seen = Date.now();
-      if (pr && pv !== o.v) { o.v = pv; o.presence = Object.freeze(pr); o.t = Date.now(); rebuild(); }
+      // never let an older update (arriving late) replace a newer one
+      if (pr && typeof pv === 'number' && pv > o.v) { o.v = pv; o.presence = Object.freeze(pr); o.t = Date.now(); rebuild(); }
     };
     const dropPeer = (p) => {
       const o = others.get(p); if (!o) return;
@@ -100,8 +151,13 @@
     }
     const discovered = (p) => { if (!lobby && ME < p) connectTo(p); };
     // ---- signalling channel ----
-    ch.on('broadcast', { event: 'm' }, ({ payload: m }) => {
-      if (left || !m || typeof m.p !== 'string' || m.p === ME) return;
+    let rxChain = Promise.resolve();
+    ch.on('broadcast', { event: 'm' }, ({ payload }) => {
+      if (left) return;
+      rxChain = rxChain.then(() => verify(payload)).then(m => { if (m && !left) onMsg(m); }).catch(() => {});
+    });
+    function onMsg(m) {
+      if (typeof m.p !== 'string' || m.p === ME) return;
       if (m.to && m.to !== ME) return;
       if (m.t === 'bye') { dropPeer(m.p); return; }
       if (m.t === 'sig') { onSig(m.p, m.d || {}); return; }
@@ -109,7 +165,7 @@
       if (m.t === 'p') gotPres(m.p, m.v, m.pr); else peer(m.p).seen = Date.now();
       if (isNew) discovered(m.p);
       if (m.t === 'hi') sendSb(true);
-    });
+    }
     ch.subscribe((st) => {
       const c = st === 'SUBSCRIBED';
       if (c !== conn) { conn = c; for (const f of connL) try { f(c); } catch (e) {} }
@@ -195,12 +251,12 @@
   }
   let lobbyRoom = null;
   window.claude = {
-    use: (n) => new Promise(res => {
+    use: (n) => ready.then(() => new Promise(res => {
       if (n !== 'room') return res(null);
       if (!lobbyRoom) { lobbyRoom = mkRoom('lobby', true); rooms.set('__lobby', lobbyRoom); }
       const t0 = Date.now();
       const iv = setInterval(() => { if (lobbyRoom.connected() || Date.now() - t0 > 8000) { clearInterval(iv); res(lobbyRoom.connected() ? lobbyRoom : null); } }, 80);
-    })
+    }), () => null)
   };
   addEventListener('pagehide', () => { for (const r of [...rooms.values()]) r.leave(); });
 })();

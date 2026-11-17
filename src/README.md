@@ -25,7 +25,9 @@
 - オンラインはホストが正しさを決める方式（packState / applyState）
 - 日本語の文字列がそのまま英語辞書のキー（`const EN = {...}`）。新しい文字を足したら EN にも足す
 - 全体の速さ：`PLAY_SPEED`（今は 0.8）
-- ランキングは Supabase の `bt_scores` テーブル（publishable キーのみ使用）
+- ランキングは Supabase の `bt_scores` テーブル（publishable キーのみ使用）。書き込みはサーバーの関数 `bt_submit()` 経由
+  （`supabase/bt_scores_secure.sql` を Supabase の SQL Editor で一度実行する。未実行の間は前の書き込み方で動く）
+- オンラインのメッセージは署名つき（net-adapter.js）。プレイヤーIDは各タブの公開鍵から作られ、なりすましできない
 
 ## 注意
 

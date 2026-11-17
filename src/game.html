@@ -513,11 +513,11 @@ h1.logo{font-size:clamp(46px,14vw,74px);letter-spacing:.02em;margin:0;text-shado
         <button class="go lime" id="btnOnline" type="button">マッチング開始</button>
       </div>
       <div class="mode mFriend">
-        <p>部屋を作ると4けたの番号が出ます。仲間にその番号を伝えて、同じ番号で入ってもらいましょう。</p>
+        <p>部屋を作ると6けたの番号が出ます。仲間にその番号を伝えて、同じ番号で入ってもらいましょう。</p>
         <button class="go sky" id="btnMakeRoom" type="button">部屋を作る</button>
         <div class="flabel">番号をもらった人</div>
         <div class="joinrow">
-          <input type="text" id="roomCode" inputmode="numeric" maxlength="4" placeholder="4けたの番号" autocomplete="off" aria-label="部屋番号">
+          <input type="text" id="roomCode" inputmode="numeric" maxlength="6" placeholder="6けたの番号" autocomplete="off" aria-label="部屋番号">
           <button class="sub" id="btnJoinRoom" type="button">入る</button>
         </div>
       </div>
@@ -668,7 +668,7 @@ h1.logo{font-size:clamp(46px,14vw,74px);letter-spacing:.02em;margin:0;text-shado
 /* ---------- language (日本語 / English) ----------
    Japanese text in the code is the key; EN holds the English. Messages sent to other players (toasts from the host)
    travel as a key plus values, so each screen shows them in its own language. */
-const EN = {"カケル": "Kakeru", "リン": "Rin", "モモ": "Momo", "ソラ": "Sora", "シオン": "Shion", "ゴウ": "Go", "あなた": "You", "誰か": "Someone", "プレイヤー": "Player", "ホスト": "Host", "ホスト（あなた）": "Host (you)", "（あなた）": " (you)", "ストリートタウン": "Street Town", "まなびや学園": "Manabiya Academy", "カラフルキューブ": "Colorful Cube", "かけはし諸島": "Bridge Islands", "町": "Town", "学校": "School", "キューブ": "Cube", "諸島": "Islands", "おまかせ": "Random", "罠": "Trap", "おとり爆弾": "Decoy bomb", "透明マント": "Invisibility cloak", "ワープ": "Warp", "手渡し": "hand-off", "投げ": "throw", "赤チーム": "Red Team", "青チーム": "Blue Team", "お花": "Flower", "ハチマキ": "Headband", "サングラス": "Sunglasses", "ヘッドホン": "Headphones", "オニのツノ": "Oni horns", "マント": "Cape", "王冠": "Crown", "コンビニ": "MART", "24時間営業": "OPEN 24H", "オフィス": "OFFICE", "ラーメン": "RAMEN", "パン屋": "BAKERY", "カフェ": "CAFE", "薬局": "PHARMACY", "本屋": "BOOKS", "ホテル": "HOTEL", "職員室": "Staff Room", "1年1組": "Class 1-1", "1年2組": "Class 1-2", "1年3組": "Class 1-3", "1年4組": "Class 1-4", "保健室": "Nurse's Office", "家庭科室": "Home Ec Room", "図書室": "Library", "購買": "School Store", "きょうの目標：にげきる！": "TODAY'S GOAL: DON'T GET CAUGHT!", "ほらよっ！": "Here ya go!", "パス！": "Pass!", "まかせた！": "All yours!", "うおっ！": "Whoa!", "マジか！": "Seriously?!", "しびれた〜！": "That stung!", "イナズマダッシュ": "Lightning Dash", "ダッシュの回復が速い": "Dash recharges faster", "オレについてこい！": "Follow my lead!", "よっしゃ、いただき！": "Yes! Mine!", "これがオレの実力！": "That's how it's done!", "ゲット！": "Got it!", "いいね！": "Nice!", "バランス型。とがった髪とイナズマのバックパック": "All-rounder. Spiky hair and a lightning-bolt backpack", "はい、どうぞ♪": "Here you go♪", "あげる〜！": "It's yours!", "えーっ！": "Ehh?!", "いらな〜い！": "Don't want it!", "きゃ〜っ！": "Kyaa!", "ジャスト名人": "Return Master", "ジャスト返しの受付が長い": "Longer window for perfect returns", "返してあげる♪": "Right back at you♪", "えへへ、勝っちゃった♪": "Hehe, I won♪", "みんな、ありがと〜！": "Thanks, everyone!", "キラキラ♪": "Sparkly♪", "みっけ！": "Found one!", "軽やかなステップ。ジャスト返しが得意": "Light on her feet. Great at perfect returns", "えいっ！": "Hyah!", "それっ！": "Take that!", "タッチ〜！": "Tag!", "ひゃっ！": "Eek!", "うそ〜！": "No way!", "うわ〜ん！": "Waaah!", "ちょこまか": "Zippy", "走り出しと切り返しが速い": "Quick starts and sharp turns", "つかまえてごらん！": "Catch me if you can!", "やった〜！ いちば〜ん！": "Yay! Number one!", "わーい、優勝！": "Woohoo, I won!", "わぁい！": "Yay!", "コイン〜！": "Coins~!", "小柄でちょこまか。どんどん投げてくる": "Small and zippy. Throws a lot", "よろしく〜": "Your turn~", "あとはよろしく": "Over to you", "まぁいっか": "Oh well", "お、きた": "Oh, here it is", "まじかぁ…": "Really...", "にげ足": "Escape Artist", "爆弾を持っていない時、足が少し速い": "A bit faster when not holding the bomb", "まぁ、なんとかなるっしょ": "Eh, it'll work out", "…あれ、勝っちゃった": "...Huh, I won", "ま、こんなもんでしょ": "About what I expected", "ラッキー": "Lucky", "ども": "Thanks", "マイペース。逃げ足が速い": "Laid-back. Quick to run away", "ふふ…": "Heh...", "ワナにかかったね": "Caught in my trap", "にゃっ！？": "Nya?!", "ちっ…": "Tch...", "にゃ〜っ！": "Nyaaa!", "ワナ使い": "Trapper", "試合開始から罠を1つ持っている": "Starts each match with a trap", "その足元、だいじょうぶ？": "Watch your step~", "ふふ、計算どおり": "Just as planned", "にゃはは、ワタシの勝ち": "Nyahaha, I win", "にゃっ": "Nya", "いただき": "Mine", "ひょろ長いネコ耳フード。罠が大好き": "Lanky, in a cat-ear hood. Loves traps", "オラァ！": "Hraah!", "うけとれぇ！": "Catch!", "なにぃ！": "What?!", "かかってこい！": "Bring it on!", "ぐおぉぉ！": "Gwaaah!", "体当たり": "Body Slam", "ぶつかっても よろけず、相手を大きく押しのける": "Doesn't stagger on contact and shoves others far", "正面から来いッ！": "Face me head-on!", "オレ様が最強だァ！": "I'm the strongest!", "うおおお、勝ったぞ！": "Raaah, I won!", "もらったァ！": "Got it!", "よしッ": "Yes!", "ガッチリ体型。ぐいぐい追いかけてくる": "Big and sturdy. Chases hard", "やあ！": "Hi!", "こっちだよ〜": "Over here~", "やった！": "Yay!", "ごめん！": "Sorry!", "ひかれた！": "Run over!", "📢 放送：{0}のシャッターが15秒閉まります": "📢 Announcement: the {0} shutters close for 15 s", "タッチ！": "Tag!", "ナイスパス！": "Nice pass!", "罠にかかった！": "Trapped!", "バンクショット！": "Bank shot!", " ラリー×": " Rally ×", "{0} → {1}（{2}{3}）+{4}／{5} -{6}": "{0} → {1} ({2}{3}) +{4} / {5} -{6}", "・バンク": ", bank", "{0}のジャスト返し！ +4": "{0}'s perfect return! +4", "ジャスト返し×{0}！": "Perfect return ×{0}!", "ジャスト返し！": "Perfect return!", "{0}が爆弾を投げた": "{0} threw the bomb", "罠は爆弾を持っている時だけ使えます": "You can only set a trap while holding the bomb", "罠を仕掛けた。10秒で手元に戻ります": "Trap set. The bomb comes back to you in 10 s", "{0}が何かを投げた": "{0} threw something", "透明マント：6秒間すがたが消える": "Invisibility cloak: you vanish for 6 s", "{0}がワープした": "{0} warped", "ラストスパート！ コイン2倍！": "Final spurt! Coins ×2!", "視点ロック解除中": "Mouse look released", "一時停止中": "Paused", "オンライン対戦中は試合が止まりません。クリックで戻ります。": "Online matches don't stop. Click to go back.", "クリックすると試合に戻ります。": "Click to return to the match.", "オンライン対戦中は試合が止まりません。「再開」で戻ります。": "Online matches don't stop. Press Resume to go back.", "「再開」で試合に戻ります。": "Press Resume to return to the match.", "注目：{0}": "Locked on: {0}", "注目を解除": "Lock-on off", "{0}にはまだ返せない": "Can't pass back to {0} yet", "相手を見失った": "Lost sight of them", "壁キック！": "Wall kick!", "ドリフトブースト！": "Drift boost!", "{0}に爆弾が返ってきた！": "The bomb came back to {0}!", "{0}の投げた爆弾が外れた": "{0}'s throw missed", "{0}がおとり爆弾でふらふら！": "{0} is dizzy from a decoy!", "命中！": "Hit!", "ぽふっ（おとり爆弾だった）": "Poof (it was a decoy)", "爆弾を拾い直した": "Picked the bomb back up", "海に落ちた爆弾が{0}の手元に戻った": "The bomb fell in the sea and went back to {0}", "外れた爆弾が{0}の手元に戻った": "The missed bomb went back to {0}", "{0}の罠が時間切れ。爆弾は手元へ": "{0}'s trap timed out. The bomb goes back", "{0}のスライディング！ {1}が転んだ": "{0}'s slide tackle! {1} went down", "転ばされた！": "Tripped!", "{0}が海に落ちた！ -{1}": "{0} fell in the sea! -{1}", "ドボン！ 海に落ちた -{0}": "Splash! Fell in the sea -{0}", "アイテム「{0}」を拾った": "Picked up: {0}", "ダブルでドカーン！<small>{0}と{1}が爆弾を持っていた</small>": "Double BOOM!<small>{0} and {1} were holding bombs</small>", "ドカーン！<small>{0}が爆弾を持っていた</small>": "BOOM!<small>{0} was holding the bomb</small>", "パス職人": "Pass Pro", "コインハンター": "Coin Hunter", "ジャスト返し名人": "Return Master", "逃げ切り王": "Escape King", "ドカーン担当": "Went BOOM", "ラストのパス": "Last pass", "{0} → {1}（残り{2}秒）": "{0} → {1} ({2} s left)", "いちばん長く持っていた": "Held it longest", "{0} {1}秒": "{0} {1} s", "コイン王": "Coin King", "{0} {1}点ぶん": "{0}: {1} pts", "あなたのニアミス": "Your near miss", "あと{0}m！": "Only {0} m away!", "いちばん海に落ちた": "Fell in the sea most", "{0} {1}回": "{0}: {1} times", "+{0}コイン（所持 {1}）": "+{0} coins (you have {1})", "　★自己ベスト更新！": "  ★ New personal best!", "観戦した試合の結果": "Results of the match you watched", "あなたが1位！": "You're #1!", "あなたは{0}位": "You placed #{0}", "1位 {0}「{1}」　ドカーン：{2}{3}（-{4}）": "#1 {0}: \"{1}\"   BOOM: {2}{3} (-{4})", "・": ", ", "引き分け！": "It's a draw!", "{0}の勝ち！ あなたのチーム！": "{0} wins! That's your team!", "{0}の勝ち": "{0} wins", "{0} {1}点 ／ {2} {3}点　　チームの合計点で勝負": "{0} {1} pts / {2} {3} pts   (team totals decide)", "位": "", "（ドカーン）": " (BOOM)", "点": " pts", "秒": " s", "もう一度": "Play again", "友だちの部屋": "Friends' room", "対戦相手を探しています": "Looking for opponents", "スタート": "Start", "CPUを足して今すぐ始める": "Add CPUs and start now", "招待リンクをコピー": "Copy invite link", "コピー": "Copy", "「招待リンクをコピー」で友だちに送ると、開くだけで部屋番号が入ります。番号を伝えて「入る」を押してもらってもOK。": "Send the invite link to your friends: opening it fills in the room number. Or just tell them the number and have them press Join.", "このページのアドレスを送って、同じように「だれとでも対戦」を押してもらうとつながります。": "Send this page's address and have them start online matchmaking too, and you'll be connected.", "このページを友だちに共有して、部屋番号を伝えてください。友だちは「部屋番号」に入力して「入る」を押すと、この部屋に来ます。": "Share this page with your friends and tell them the room number. They type it in and press Join to come to this room.", "一緒に遊ぶ人にこのページを共有してください（ページ右上の共有メニューから）。同じページを開いて「だれとでも対戦」を押した人同士がつながります。": "Share this page with the people you want to play with (Share menu, top right). Everyone who opens it and starts matchmaking gets connected.", "接続しています…": "Connecting...", "サーバーにつながりませんでした。通信状態を確かめて、もう一度ためしてください。": "Couldn't reach the server. Check your connection and try again.", "この開き方ではオンライン対戦に接続できません。claude.ai にサインインした状態でこのページを開いてください。": "Online play isn't available when opened this way. Open this page while signed in to claude.ai.", "部屋に入れませんでした。少し待ってからもう一度ためしてください。": "Couldn't join the room. Wait a moment and try again.", "接続を待っています…": "Waiting for the connection...", "いま試合中です。観戦しながら待つと、次の試合から参加できます。": "A match is in progress. Watch it while you wait and you'll join the next one.", "{0}人そろっています。準備ができたら「スタート」。": "{0} players here. Press Start when you're ready.", "友だちが入ってくるのを待っています…": "Waiting for friends to join...", "ホストがスタートするのを待っています…": "Waiting for the host to start...", "まもなく始まります…": "Starting soon...", "待っている人: {0}人。あと{1}人そろうと自動で始まります。": "Waiting: {0}. Starts automatically when {1} more join.", "対戦部屋を作れませんでした。": "Couldn't create a match room.", "メンバーを待っています…": "Waiting for players...", "対戦相手が集まりませんでした。": "Not enough opponents showed up.", "試合の部屋が見つかりませんでした。": "Couldn't find the match room.", "試合の部屋に入れませんでした。": "Couldn't join the match room.", "観戦": "Spectating", "試合に追いついています…": "Catching up with the match...", "対戦部屋に入れませんでした。": "Couldn't join the match room.", "ホストの準備を待っています…": "Waiting for the host...", "次の試合を準備しています…": "Getting the next match ready...", "爆弾は{0}へ": "The bomb goes to {0}", "ほかの人がいなくなりました。": "Everyone else has left.", "{0}の通信が止まったので、{1}がホストを引き継ぎました": "{0} lost connection, so {1} took over as host", "{0}が抜けたので、{1}がホストを引き継ぎました": "{0} left, so {1} took over as host", "ホストとの接続が切れました。": "Lost connection to the host.", "{0}が抜けました。ホストを引き継いでいます…": "{0} left. Taking over as host...", "ホストから応答がありませんでした。": "The host isn't responding.", "{0}が抜けました": "{0} left", "あなたがホスト　": "You're the host  ", "もう一度：{0}/{1}人 OK": "Play again: {0}/{1} ready", "（全員そろうと始まります）": " (starts when everyone's ready)", "　ホストを待っています…": "  Waiting for the host...", "今すぐ始める": "Start now", "準備OK": "Ready", "もう一度（同じメンバー）": "Play again (same players)", "　最初の爆弾: ": "  First bomb: ", "オンライン（ホスト）": "Online (host)", "オンライン": "Online", " {0}人・通信{1}": " {0} players, link {1}", "投げる": "Throw", "返す！": "Return!", "スライド": "Slide", "ダッシュ": "Dash", "アイテム": "Item", "爆弾を持っている！": "You have the bomb!", "投げた！": "Thrown!", "爆弾が落ちている": "Bomb on the ground", "罠 あと{0}秒": "Trap: {0} s", "爆弾を持っている！<small>ぶつかる・投げる・罠で誰かに渡そう</small>": "You have the bomb!<small>Bump, throw or trap someone to pass it on</small>", "爆弾を投げた！<small>当たれば相手に渡る</small>": "Bomb thrown!<small>If it hits, they get it</small>", "爆弾が落ちている！<small>拾い直すか、少し待つと手元に戻る</small>": "The bomb is on the ground!<small>Pick it up, or wait and it comes back</small>", "罠を仕掛け中<small>あと{0}秒で手元に戻る</small>": "Trap set<small>Comes back to you in {0} s</small>", "<span class=\"who\" style=\"background:{0}\"></span>{1}<span class=\"nm\"></span><small>{2}</small>": "<span class=\"who\" style=\"background:{0}\"></span>{1}<span class=\"nm\"></span><small>{2}</small>", "爆弾: ": "Bomb: ", "あなたから {0}m": "{0} m from you", "転んだ！": "Tripped!", "ふらふら…": "Dizzy...", "注目中：{0}（横・後ろに走れる）": "Locked on: {0} (strafe and back up)", "今だ！「返す！」で打ち返せる": "Now! Press Return! to hit it back", "今だ！クリックで打ち返せる": "Now! Click to hit it back", "爆弾が大きくなって足が速い": "Bigger bomb, faster feet", "受け取った直後 {0}秒は渡せない": "Can't pass for {0} s after receiving", "{0}には {1}秒 返せない": "Can't pass back to {0} for {1} s", "透明 {0}秒": "Invisible {0} s", "今だ！「返す！」": "Now! Return!", "なし": "None", "{0}点・{1}位": "{0} pts · #{1}", "爆弾が来た！ -{0}": "You got the bomb! -{0}", "セーフ！": "Close one!", "ドボン！": "Splash!", "観戦中：{0}（タップで切り替え）": "Watching: {0} (tap to switch)", "スタート！": "GO!", "部屋番号は4けたの数字です。": "The room number is 4 digits.", "ばくおに！で遊ぼう！ 部屋番号 {0}\n{1}{2}#r{3}": "Let's play Bomb Tag! Room {0}\n{1}{2}#r{3}", "ばくおに！の部屋番号：": "Bomb Tag room number: ", "コピーしました": "Copied", "　所持コイン：{0}": "  Coins: {0}", "{0}コインで買う": "Buy for {0} coins", "つけている（はずす）": "Wearing (take off)", "つける": "Wear", "試合数": "Matches", "1位": "Wins", "最高点": "Best score", "拾ったコイン": "Coins collected", "パス": "Passes", "持ちアイテム": "Items owned", "部屋番号 {0} が入っています。キャラとニックネームを決めて「入る」を押してください。": "Room number {0} is filled in. Pick a character and nickname, then press Join.", "音楽: ": "Music: ", "オン": "On", "オフ": "Off", "練習": "Practice", "オンライン対戦": "Online Match", "仲間と対戦": "Play with Friends", "3D表示の部品を読み込めませんでした。ページを再読み込みしてください。": "Couldn't load the 3D engine. Please reload the page.", "スマホのかんたん操作と同じ動きです。<br><b>W / S</b>（↑↓）前進・後退 ／ <b>A / D</b>（←→）旋回（W＋Aなら前に進みながら左へ曲がる）<br><b>マウスでドラッグ</b> 見回す（離すと視線は水平に戻る）／ <b>人をクリック</b>するとその人へ投げる<br><b>Shift</b>（画面の大きいボタンと同じ）投げる（前の相手を自動で狙う・長押しで強く）／返す！／ダッシュ → 続けて押すとスライディング<br><b>Space</b> ジャンプ（空中で壁に向かって押すと壁キック。小さな段差は自動）<br><b>Q</b> 注目（相手を見たまま、A/Dで横走り・Sで後ろへ下がる。爆弾を持っていない時は相手をクリックしても注目）／ <b>Sを2回</b> 振り向き<br><b>E</b> アイテム ／ <b>Esc</b> 一時停止 ／ <b>M</b> 音楽<br>画面右下のボタンはマウスでも押せます": "Same moves as the easy phone controls.<br><b>W / S</b> (↑↓) forward / back · <b>A / D</b> (←→) turn (W+A moves forward while turning left)<br><b>Drag the mouse</b> to look around (lets go back to level) · <b>Click a person</b> to throw at them<br><b>Shift</b> (same as the big on-screen button) Throw (auto-aims at the player ahead; hold to throw harder) / Return! / Dash → press again to slide<br><b>Space</b> Jump (press toward a wall in mid-air to wall-kick; small steps are automatic)<br><b>Q</b> Lock-on (keep facing them; A/D to strafe, S to back up. Without the bomb, clicking a player also locks on) · <b>S twice</b> turn around<br><b>E</b> Item · <b>Esc</b> Pause · <b>M</b> Music<br>The buttons at the bottom right also work with the mouse", "<b>左側</b> 上で前進・下で後退・左右で旋回（左上なら前に進みながら左へ曲がる）／2回タップでダッシュ<br><b>右側</b> なぞると見回せる（上下も）。指を離すと視線は水平に戻る ／ <b>人をタップ</b>するとその人へ投げる<br><b>大きいボタン</b> 状況で変わる：投げる（前の相手を自動で狙う・長押しで強く）／返す！（爆弾が飛んできた時）／ダッシュ → 続けて押すとスライディング<br><b>ジャンプ</b> 空中で壁に向かって押すと壁キック。小さな段差は自動でジャンプ<br><b>注目</b> ボタンか、爆弾を持っていない時に相手をタップ：相手を見たまま、左右で横走り・下で後ろへ下がる ／ 右側の空いた所を<b>2回タップ</b>で振り向き": "<b>Left side</b> up = forward, down = back, left/right = turn (up-left moves forward while turning left) · double-tap to dash<br><b>Right side</b> swipe to look around (up and down too); lift your finger to level the view · <b>Tap a person</b> to throw at them<br><b>Big button</b> changes with the situation: Throw (auto-aims at the player ahead; hold to throw harder) / Return! (when a bomb is flying at you) / Dash → press again to slide<br><b>Jump</b> press toward a wall in mid-air to wall-kick; small steps are jumped automatically<br><b>Lock-on</b> button, or tap a player when you don't have the bomb: keep facing them, left/right to strafe, down to back up · <b>double-tap</b> an empty spot on the right to turn around", "<b>左側をドラッグ</b> 移動 ／ <b>右側をドラッグ</b> 視点<br><b>投げる</b> 長押しでため、離すと投げる。爆弾を持っていない時は「返す」<br><b>ダッシュ</b>（続けて押すとスライディング）・<b>ジャンプ</b>（空中で壁キック）・<b>アイテム</b>": "<b>Drag on the left</b> to move · <b>drag on the right</b> to look<br><b>Throw</b>: hold to charge, release to throw. Without the bomb it becomes Return<br><b>Dash</b> (press again to slide) · <b>Jump</b> (wall-kick in mid-air) · <b>Item</b>", "0点": "0 pts", "音楽": "Music", "エモート": "Emote", "画面をクリックすると視点を操作できます": "Click the screen to control the camera", "ここで": "Here:", "移動": "Move", "左側：上で前進・左右で旋回": "Left side: up to go forward, left/right to turn", "左上なら進みながら左へ／2回タップでダッシュ": "Up-left moves while turning left / double-tap to dash", "右側：なぞって見回す（上下も）": "Right side: swipe to look around (up and down too)", "人をタップするとその人へ投げる": "Tap a person to throw at them", "大きいボタン：投げる（長押しで強く）／爆弾が飛んできたら「返す！」／ダッシュ→続けて押すとスライド": "Big button: Throw (hold to throw harder) / Return! when a bomb flies at you / Dash → press again to slide", "注目": "Lock-on", "ジャンプ": "Jump", "ばく": "BOMB ", "おに！": "TAG!", "爆弾を押しつけあう、3〜6人のおにごっこ": "Pass the bomb before it blows! Tag for 3–6 players", "CPUと対戦": "Play against CPUs", "だれかとマッチング": "Get matched with anyone", "お部屋を作って遊ぶ": "Make a room and play together", "ゲーム説明": "How to Play", "ショップ・きろく": "Shop & Records", "音楽: オン": "Music: On", "← タイトル": "← Title", "キャラクター": "Character", "特技": "Skill", "ニックネーム": "Nickname", "人数": "Players", "時間": "Time", "1分": "1 min", "3分": "3 min", "ステージ": "Stage", "ルール": "Rules", "個人戦": "Solo", "チーム戦": "Teams", "時間帯": "Time of day", "昼": "Day", "夕方": "Evening", "夜": "Night", "爆弾": "Bombs", "1個": "1", "2個": "2", "練習をはじめる": "Start practice", "3分・ステージはおまかせ。同じタイミングで探している人とつながります。": "3 minutes, random stage. You'll be matched with whoever is searching at the same time.", "マッチング開始": "Find a match", "部屋を作ると4けたの番号が出ます。仲間にその番号を伝えて、同じ番号で入ってもらいましょう。": "Make a room to get a 4-digit number. Tell your friends the number so they can join with it.", "部屋を作る": "Make a room", "番号をもらった人": "Got a number?", "入る": "Join", "ポイントを一番ためた人の勝ち。コインを拾って加点、爆弾を渡されると減点。時間切れで爆弾を持っていたら大減点！": "Most points wins. Pick up coins to score; getting the bomb costs points. Holding it when time runs out costs a lot!", "点数": "Points", "コイン +2": "Coin +2", "大コイン +5": "Big coin +5", "パス成功 +1〜": "Successful pass +1 or more", "爆弾を渡される -10": "Get the bomb -10", "ドカーン -100": "BOOM -100", "海に落ちる -10": "Fall in the sea -10", "爆弾の渡し方": "Passing the bomb", "爆弾を持ったまま相手にぶつかる": "Bump into someone while holding the bomb", "当たれば渡る。ちょん押しで山なり、長押しほど速い直球。外したら拾い直し": "A hit passes it on. Tap for a lob, hold for a faster, straighter throw. Miss and you pick it up again", "床に仕掛けて、踏んだ人に爆弾が移る": "Set it on the floor; whoever steps on it gets the bomb", "ジャスト返し": "Perfect return", "飛んできた爆弾を、当たる直前に打ち返す": "Hit an incoming bomb back just before it lands", "スライディング": "Slide tackle", "走りながら出すと、ぶつかった相手を転ばせて少しの間動けなくする": "Slide while running to trip whoever you hit; they can't move for a moment", "テクニック": "Techniques", "スライディングで黄色いゲートをくぐる・空中で壁キック・スライド中に曲がるとドリフト加速。爆弾を持った人が通った床にはインクが付き、持ち主は速く、逃げる人は遅くなる。爆弾は持つほど大きくなり、持ち主の足も速くなる。うまいプレイにはボーナス点。コインはしばらくすると消えて別の場所に出るので、止まっていると損をする。": "Slide under the yellow gates, wall-kick in mid-air, and turn while sliding for a drift boost. The bomb holder leaves ink on the floor: it speeds up the holder and slows down everyone else. The longer you hold the bomb, the bigger it gets and the faster you run. Good plays earn bonus points. Coins vanish after a while and pop up elsewhere, so keep moving.", "操作方法": "Controls", "スマホの操作": "Phone controls", "かんたん": "Easy", "通常": "Classic", "旋回の速さ": "Turn speed", "ゆっくり": "Slow", "ふつう": "Normal", "はやい": "Fast", "タイトルにもどる": "Back to title", "ショップ": "Shop", "試合で集めたコインで、キャラの頭や背中に付けるアイテムを買えます。": "Spend the coins you collect in matches on items for your character's head and back.", "きろく": "Records", "もどる": "Back", "部屋番号": "Room number", "4人に満たない分はCPUを入れる": "Fill up to 4 players with CPUs", "チーム戦（赤と青に分かれる）": "Team match (red vs blue)", "試合を観戦する": "Watch the match", "やめる": "Leave", "再開": "Resume", "試合をやめる": "Quit match", "順位": "Rank", "ポイント": "Points", "持っていた時間": "Time holding", "メニューに戻る": "Back to menu", "例：よしゆき": "e.g. Yoshi", "4けたの番号": "4-digit number", "言語": "Language", "1位を{0}回とる": "Win {0} match", "3位以内に{0}回入る": "Finish in the top 3, {0} times", "{0}点": "{0} pts", "　🎯 ミッション達成「{0}」+{1}": "  🎯 Mission done: \"{0}\" +{1}", "かけはし諸島で{0}回遊ぶ": "Play {0} match on Bridge Islands", "きょうのミッション": "Today's Missions", "まなびや学園で{0}回遊ぶ": "Play {0} match at Manabiya Academy", "みんなのランキング": "Leaderboard", "みんな大きくなってタッチしやすい！": "Everyone's huge, easier to tag!", "みんな足が速い！": "Everyone's faster!", "イベントタイム終了": "Event time over", "イベントタイム！": "EVENT TIME!", "イベントタイム！ {0} {1}（{2}秒）": "EVENT TIME! {0} {1} ({2} s)", "コインがどんどん出てくる！": "Coins everywhere!", "コインで{0}点ぶん集める": "Collect {0} pts worth of coins", "コインの雨": "Coin Rain", "ジャスト返しを{0}回きめる": "Land {0} perfect returns", "ジャンプが高い！ 爆弾もふわふわ": "Jump higher! The bomb floats too", "スピードアップ": "Speed Up", "スライディングで{0}人転ばせる": "Trip {0} players with slide tackles", "ミッション": "Missions", "ランキング": "Leaderboard", "ランキングは公開サイト（bomb-tag.vercel.app）で見られます。": "The leaderboard is on the public site (bomb-tag.vercel.app).", "ランキングを読み込めませんでした（準備中かもしれません）。": "Couldn't load the leaderboard (it may not be set up yet).", "今週の記録はまだありません。3分の試合で1番乗りしよう！": "No scores this week yet. Be the first in a 3-minute match!", "今週（{0}）のベスト記録。3分の試合だけが記録されます。毎週月曜にリセット。": "Best scores this week ({0}). Only 3-minute matches count. Resets every Monday.", "低重力": "Low Gravity", "巨大化": "Giants", "毎日0時に入れ替わります（あと約{0}時間）": "New missions every day at midnight JST (about {0} h left)", "爆弾を{0}回パスする": "Pass the bomb {0} times", "爆弾を合計3秒未満しか持たずに試合を終える": "Finish a match holding the bomb for under 3 s in total", "試合を{0}回遊ぶ": "Play {0} matches", "試合を最後まで遊ぶと進みます。達成するとコインがもらえます。": "Finish matches to make progress. Complete one to earn coins.", "読み込み中…": "Loading...", "達成！": "Done!", "ボイスチャット": "Voice chat", "マイク オン": "Mic on", "マイク オフ": "Mic off", "マイク": "Mic", "試合中、ほかのプレイヤーの声が聞こえます（チーム戦では味方の声だけ）。試合中もいつでも切り替えられます。": "During matches you'll hear the other players (in team matches, only your team). You can switch any time.", "マイクが使えませんでした（ブラウザの設定でマイクを許可してください）": "Couldn't use the mic (allow the microphone in your browser settings)", "🔇 マイク": "🔇 Mic", "🎙 ボイスチャットOK": "🎙 Voice chat", "🎙 オンライン対戦は、声で話しながら遊べます": "🎙 Talk with voice chat in online matches", "オンライン対戦と仲間と対戦では、ほかのプレイヤーと声で話しながら遊べます。": "In Online Match and Play with Friends you can talk to the other players by voice.", "試合の前に「マイク オン／オフ」を選べます（最初はオフ）。試合中も画面上の「🎙 マイク」ボタンでいつでも切り替えられます。": "Choose Mic on / off before the match (off at first). During the match, switch any time with the \"🎙 Mic\" button at the top of the screen.", "マイクをオンにすると話しっぱなしになります。初めての時はブラウザが「マイクを使っていいですか？」と聞くので「許可」を押してください。": "With the mic on, everything you say is sent. The first time, your browser asks to use the microphone: press Allow.", "みんなの声は同じ大きさで聞こえます。話している人の頭の上に緑の音の波マークが出ます。": "Everyone is heard at the same volume. A green sound-wave mark shows over whoever is talking.", "チーム戦では、味方の声だけが聞こえ、自分の声も味方にだけ届きます。": "In team matches you only hear your team, and only your team hears you.", "観戦中は話せません。知らない人とも話すことになるので、名前や住所など自分のことは話さないようにしましょう。": "You can't talk while spectating. You may be talking with strangers, so don't share personal details like your name or address.", "※ボイスチャットは公開サイト（bomb-tag.vercel.app）で使えます。": "* Voice chat works on the public site (bomb-tag.vercel.app).", "🔥 逆転ブースト：ダッシュ回復アップ": "🔥 Comeback boost: faster dash recharge", "場外！ 足が遅くなる ― 内側へ戻ろう": "Out of bounds! You're slowed — get back inside", "ラスト5秒": "Last 5 seconds", "🎬 ラスト5秒をリプレイ": "🎬 Replay the last 5 seconds", "{0}連鎖！ 関わったみんなに +1": "{0}-pass chain! +1 for everyone in it", "ラスト{0}秒！": "Last {0} seconds!", "場外がせまってくる！": "The zone is closing in!", "赤いところでは足が遅くなる": "You run slower in the red area", "🟥 場外がせまる": "🟥 Zone closing", "逆転ブースト！": "Comeback boost!", "パス連鎖": "PASS CHAIN", "{0}連鎖！": "{0} in a row!", "関わったみんなに +1": "+1 for everyone in it", "試合を盛り上げるルール": "Rules that heat things up", "場外がせまる": "Closing zone", "ラスト30秒になると、ステージの外側から赤いエリアが内側へせまってくる。赤いところでは足が遅くなる": "In the last 30 seconds a red area closes in from the edges of the stage. You run slower inside it.", "4秒以内に次々と爆弾が渡ると連鎖。3連鎖目から、関わったみんなに +1": "Pass the bomb on within 4 seconds again and again to build a chain. From the 3rd pass, everyone in the chain gets +1.", "逆転ブースト": "Comeback boost", "最下位で1位と大きく差がついている人は、ダッシュの回復が速くなる": "Whoever is in last place, far behind the leader, recharges dash faster.", "リプレイ": "Replay", "結果画面の「ラスト5秒をリプレイ」で、爆発までの5秒をもう一度見られる": "On the results screen, tap \"Replay the last 5 seconds\" to watch the run-up to the blast again.", "魔界": "Demon", "魔界キャッスル": "Demon Castle", "{0}が溶岩をふんだ！ -{1}": "{0} stepped in lava! -{1}", "アチチッ！ 溶岩 -{0}": "Ouch, hot! Lava -{0}", "アチチッ！": "Ouch, hot!", "ワープ！": "Warp!", "© 2026 スタジオ・ペン": "© 2026 Studio Pen"};
+const EN = {"カケル": "Kakeru", "リン": "Rin", "モモ": "Momo", "ソラ": "Sora", "シオン": "Shion", "ゴウ": "Go", "あなた": "You", "誰か": "Someone", "プレイヤー": "Player", "通信が切れていたため、この試合は観戦になりました。次の試合から参加できます。": "Your connection dropped, so you are watching the rest of this match. You can play again from the next one.", "ホスト": "Host", "ホスト（あなた）": "Host (you)", "（あなた）": " (you)", "ストリートタウン": "Street Town", "まなびや学園": "Manabiya Academy", "カラフルキューブ": "Colorful Cube", "かけはし諸島": "Bridge Islands", "町": "Town", "学校": "School", "キューブ": "Cube", "諸島": "Islands", "おまかせ": "Random", "罠": "Trap", "おとり爆弾": "Decoy bomb", "透明マント": "Invisibility cloak", "ワープ": "Warp", "手渡し": "hand-off", "投げ": "throw", "赤チーム": "Red Team", "青チーム": "Blue Team", "お花": "Flower", "ハチマキ": "Headband", "サングラス": "Sunglasses", "ヘッドホン": "Headphones", "オニのツノ": "Oni horns", "マント": "Cape", "王冠": "Crown", "コンビニ": "MART", "24時間営業": "OPEN 24H", "オフィス": "OFFICE", "ラーメン": "RAMEN", "パン屋": "BAKERY", "カフェ": "CAFE", "薬局": "PHARMACY", "本屋": "BOOKS", "ホテル": "HOTEL", "職員室": "Staff Room", "1年1組": "Class 1-1", "1年2組": "Class 1-2", "1年3組": "Class 1-3", "1年4組": "Class 1-4", "保健室": "Nurse's Office", "家庭科室": "Home Ec Room", "図書室": "Library", "購買": "School Store", "きょうの目標：にげきる！": "TODAY'S GOAL: DON'T GET CAUGHT!", "ほらよっ！": "Here ya go!", "パス！": "Pass!", "まかせた！": "All yours!", "うおっ！": "Whoa!", "マジか！": "Seriously?!", "しびれた〜！": "That stung!", "イナズマダッシュ": "Lightning Dash", "ダッシュの回復が速い": "Dash recharges faster", "オレについてこい！": "Follow my lead!", "よっしゃ、いただき！": "Yes! Mine!", "これがオレの実力！": "That's how it's done!", "ゲット！": "Got it!", "いいね！": "Nice!", "バランス型。とがった髪とイナズマのバックパック": "All-rounder. Spiky hair and a lightning-bolt backpack", "はい、どうぞ♪": "Here you go♪", "あげる〜！": "It's yours!", "えーっ！": "Ehh?!", "いらな〜い！": "Don't want it!", "きゃ〜っ！": "Kyaa!", "ジャスト名人": "Return Master", "ジャスト返しの受付が長い": "Longer window for perfect returns", "返してあげる♪": "Right back at you♪", "えへへ、勝っちゃった♪": "Hehe, I won♪", "みんな、ありがと〜！": "Thanks, everyone!", "キラキラ♪": "Sparkly♪", "みっけ！": "Found one!", "軽やかなステップ。ジャスト返しが得意": "Light on her feet. Great at perfect returns", "えいっ！": "Hyah!", "それっ！": "Take that!", "タッチ〜！": "Tag!", "ひゃっ！": "Eek!", "うそ〜！": "No way!", "うわ〜ん！": "Waaah!", "ちょこまか": "Zippy", "走り出しと切り返しが速い": "Quick starts and sharp turns", "つかまえてごらん！": "Catch me if you can!", "やった〜！ いちば〜ん！": "Yay! Number one!", "わーい、優勝！": "Woohoo, I won!", "わぁい！": "Yay!", "コイン〜！": "Coins~!", "小柄でちょこまか。どんどん投げてくる": "Small and zippy. Throws a lot", "よろしく〜": "Your turn~", "あとはよろしく": "Over to you", "まぁいっか": "Oh well", "お、きた": "Oh, here it is", "まじかぁ…": "Really...", "にげ足": "Escape Artist", "爆弾を持っていない時、足が少し速い": "A bit faster when not holding the bomb", "まぁ、なんとかなるっしょ": "Eh, it'll work out", "…あれ、勝っちゃった": "...Huh, I won", "ま、こんなもんでしょ": "About what I expected", "ラッキー": "Lucky", "ども": "Thanks", "マイペース。逃げ足が速い": "Laid-back. Quick to run away", "ふふ…": "Heh...", "ワナにかかったね": "Caught in my trap", "にゃっ！？": "Nya?!", "ちっ…": "Tch...", "にゃ〜っ！": "Nyaaa!", "ワナ使い": "Trapper", "試合開始から罠を1つ持っている": "Starts each match with a trap", "その足元、だいじょうぶ？": "Watch your step~", "ふふ、計算どおり": "Just as planned", "にゃはは、ワタシの勝ち": "Nyahaha, I win", "にゃっ": "Nya", "いただき": "Mine", "ひょろ長いネコ耳フード。罠が大好き": "Lanky, in a cat-ear hood. Loves traps", "オラァ！": "Hraah!", "うけとれぇ！": "Catch!", "なにぃ！": "What?!", "かかってこい！": "Bring it on!", "ぐおぉぉ！": "Gwaaah!", "体当たり": "Body Slam", "ぶつかっても よろけず、相手を大きく押しのける": "Doesn't stagger on contact and shoves others far", "正面から来いッ！": "Face me head-on!", "オレ様が最強だァ！": "I'm the strongest!", "うおおお、勝ったぞ！": "Raaah, I won!", "もらったァ！": "Got it!", "よしッ": "Yes!", "ガッチリ体型。ぐいぐい追いかけてくる": "Big and sturdy. Chases hard", "やあ！": "Hi!", "こっちだよ〜": "Over here~", "やった！": "Yay!", "ごめん！": "Sorry!", "ひかれた！": "Run over!", "📢 放送：{0}のシャッターが15秒閉まります": "📢 Announcement: the {0} shutters close for 15 s", "タッチ！": "Tag!", "ナイスパス！": "Nice pass!", "罠にかかった！": "Trapped!", "バンクショット！": "Bank shot!", " ラリー×": " Rally ×", "{0} → {1}（{2}{3}）+{4}／{5} -{6}": "{0} → {1} ({2}{3}) +{4} / {5} -{6}", "・バンク": ", bank", "{0}のジャスト返し！ +4": "{0}'s perfect return! +4", "ジャスト返し×{0}！": "Perfect return ×{0}!", "ジャスト返し！": "Perfect return!", "{0}が爆弾を投げた": "{0} threw the bomb", "罠は爆弾を持っている時だけ使えます": "You can only set a trap while holding the bomb", "罠を仕掛けた。10秒で手元に戻ります": "Trap set. The bomb comes back to you in 10 s", "{0}が何かを投げた": "{0} threw something", "透明マント：6秒間すがたが消える": "Invisibility cloak: you vanish for 6 s", "{0}がワープした": "{0} warped", "ラストスパート！ コイン2倍！": "Final spurt! Coins ×2!", "視点ロック解除中": "Mouse look released", "一時停止中": "Paused", "オンライン対戦中は試合が止まりません。クリックで戻ります。": "Online matches don't stop. Click to go back.", "クリックすると試合に戻ります。": "Click to return to the match.", "オンライン対戦中は試合が止まりません。「再開」で戻ります。": "Online matches don't stop. Press Resume to go back.", "「再開」で試合に戻ります。": "Press Resume to return to the match.", "注目：{0}": "Locked on: {0}", "注目を解除": "Lock-on off", "{0}にはまだ返せない": "Can't pass back to {0} yet", "相手を見失った": "Lost sight of them", "壁キック！": "Wall kick!", "ドリフトブースト！": "Drift boost!", "{0}に爆弾が返ってきた！": "The bomb came back to {0}!", "{0}の投げた爆弾が外れた": "{0}'s throw missed", "{0}がおとり爆弾でふらふら！": "{0} is dizzy from a decoy!", "命中！": "Hit!", "ぽふっ（おとり爆弾だった）": "Poof (it was a decoy)", "爆弾を拾い直した": "Picked the bomb back up", "海に落ちた爆弾が{0}の手元に戻った": "The bomb fell in the sea and went back to {0}", "外れた爆弾が{0}の手元に戻った": "The missed bomb went back to {0}", "{0}の罠が時間切れ。爆弾は手元へ": "{0}'s trap timed out. The bomb goes back", "{0}のスライディング！ {1}が転んだ": "{0}'s slide tackle! {1} went down", "転ばされた！": "Tripped!", "{0}が海に落ちた！ -{1}": "{0} fell in the sea! -{1}", "ドボン！ 海に落ちた -{0}": "Splash! Fell in the sea -{0}", "アイテム「{0}」を拾った": "Picked up: {0}", "ダブルでドカーン！<small>{0}と{1}が爆弾を持っていた</small>": "Double BOOM!<small>{0} and {1} were holding bombs</small>", "ドカーン！<small>{0}が爆弾を持っていた</small>": "BOOM!<small>{0} was holding the bomb</small>", "パス職人": "Pass Pro", "コインハンター": "Coin Hunter", "ジャスト返し名人": "Return Master", "逃げ切り王": "Escape King", "ドカーン担当": "Went BOOM", "ラストのパス": "Last pass", "{0} → {1}（残り{2}秒）": "{0} → {1} ({2} s left)", "いちばん長く持っていた": "Held it longest", "{0} {1}秒": "{0} {1} s", "コイン王": "Coin King", "{0} {1}点ぶん": "{0}: {1} pts", "あなたのニアミス": "Your near miss", "あと{0}m！": "Only {0} m away!", "いちばん海に落ちた": "Fell in the sea most", "{0} {1}回": "{0}: {1} times", "+{0}コイン（所持 {1}）": "+{0} coins (you have {1})", "　★自己ベスト更新！": "  ★ New personal best!", "観戦した試合の結果": "Results of the match you watched", "あなたが1位！": "You're #1!", "あなたは{0}位": "You placed #{0}", "1位 {0}「{1}」　ドカーン：{2}{3}（-{4}）": "#1 {0}: \"{1}\"   BOOM: {2}{3} (-{4})", "・": ", ", "引き分け！": "It's a draw!", "{0}の勝ち！ あなたのチーム！": "{0} wins! That's your team!", "{0}の勝ち": "{0} wins", "{0} {1}点 ／ {2} {3}点　　チームの合計点で勝負": "{0} {1} pts / {2} {3} pts   (team totals decide)", "位": "", "（ドカーン）": " (BOOM)", "点": " pts", "秒": " s", "もう一度": "Play again", "友だちの部屋": "Friends' room", "対戦相手を探しています": "Looking for opponents", "スタート": "Start", "CPUを足して今すぐ始める": "Add CPUs and start now", "招待リンクをコピー": "Copy invite link", "コピー": "Copy", "「招待リンクをコピー」で友だちに送ると、開くだけで部屋番号が入ります。番号を伝えて「入る」を押してもらってもOK。": "Send the invite link to your friends: opening it fills in the room number. Or just tell them the number and have them press Join.", "このページのアドレスを送って、同じように「だれとでも対戦」を押してもらうとつながります。": "Send this page's address and have them start online matchmaking too, and you'll be connected.", "このページを友だちに共有して、部屋番号を伝えてください。友だちは「部屋番号」に入力して「入る」を押すと、この部屋に来ます。": "Share this page with your friends and tell them the room number. They type it in and press Join to come to this room.", "一緒に遊ぶ人にこのページを共有してください（ページ右上の共有メニューから）。同じページを開いて「だれとでも対戦」を押した人同士がつながります。": "Share this page with the people you want to play with (Share menu, top right). Everyone who opens it and starts matchmaking gets connected.", "接続しています…": "Connecting...", "サーバーにつながりませんでした。通信状態を確かめて、もう一度ためしてください。": "Couldn't reach the server. Check your connection and try again.", "この開き方ではオンライン対戦に接続できません。claude.ai にサインインした状態でこのページを開いてください。": "Online play isn't available when opened this way. Open this page while signed in to claude.ai.", "部屋に入れませんでした。少し待ってからもう一度ためしてください。": "Couldn't join the room. Wait a moment and try again.", "接続を待っています…": "Waiting for the connection...", "いま試合中です。観戦しながら待つと、次の試合から参加できます。": "A match is in progress. Watch it while you wait and you'll join the next one.", "{0}人そろっています。準備ができたら「スタート」。": "{0} players here. Press Start when you're ready.", "友だちが入ってくるのを待っています…": "Waiting for friends to join...", "ホストがスタートするのを待っています…": "Waiting for the host to start...", "まもなく始まります…": "Starting soon...", "待っている人: {0}人。あと{1}人そろうと自動で始まります。": "Waiting: {0}. Starts automatically when {1} more join.", "対戦部屋を作れませんでした。": "Couldn't create a match room.", "メンバーを待っています…": "Waiting for players...", "対戦相手が集まりませんでした。": "Not enough opponents showed up.", "試合の部屋が見つかりませんでした。": "Couldn't find the match room.", "試合の部屋に入れませんでした。": "Couldn't join the match room.", "観戦": "Spectating", "試合に追いついています…": "Catching up with the match...", "対戦部屋に入れませんでした。": "Couldn't join the match room.", "ホストの準備を待っています…": "Waiting for the host...", "次の試合を準備しています…": "Getting the next match ready...", "爆弾は{0}へ": "The bomb goes to {0}", "ほかの人がいなくなりました。": "Everyone else has left.", "{0}の通信が止まったので、{1}がホストを引き継ぎました": "{0} lost connection, so {1} took over as host", "{0}が抜けたので、{1}がホストを引き継ぎました": "{0} left, so {1} took over as host", "ホストとの接続が切れました。": "Lost connection to the host.", "{0}が抜けました。ホストを引き継いでいます…": "{0} left. Taking over as host...", "ホストから応答がありませんでした。": "The host isn't responding.", "{0}が抜けました": "{0} left", "あなたがホスト　": "You're the host  ", "もう一度：{0}/{1}人 OK": "Play again: {0}/{1} ready", "（全員そろうと始まります）": " (starts when everyone's ready)", "　ホストを待っています…": "  Waiting for the host...", "今すぐ始める": "Start now", "準備OK": "Ready", "もう一度（同じメンバー）": "Play again (same players)", "　最初の爆弾: ": "  First bomb: ", "オンライン（ホスト）": "Online (host)", "オンライン": "Online", " {0}人・通信{1}": " {0} players, link {1}", "投げる": "Throw", "返す！": "Return!", "スライド": "Slide", "ダッシュ": "Dash", "アイテム": "Item", "爆弾を持っている！": "You have the bomb!", "投げた！": "Thrown!", "爆弾が落ちている": "Bomb on the ground", "罠 あと{0}秒": "Trap: {0} s", "爆弾を持っている！<small>ぶつかる・投げる・罠で誰かに渡そう</small>": "You have the bomb!<small>Bump, throw or trap someone to pass it on</small>", "爆弾を投げた！<small>当たれば相手に渡る</small>": "Bomb thrown!<small>If it hits, they get it</small>", "爆弾が落ちている！<small>拾い直すか、少し待つと手元に戻る</small>": "The bomb is on the ground!<small>Pick it up, or wait and it comes back</small>", "罠を仕掛け中<small>あと{0}秒で手元に戻る</small>": "Trap set<small>Comes back to you in {0} s</small>", "<span class=\"who\" style=\"background:{0}\"></span>{1}<span class=\"nm\"></span><small>{2}</small>": "<span class=\"who\" style=\"background:{0}\"></span>{1}<span class=\"nm\"></span><small>{2}</small>", "爆弾: ": "Bomb: ", "あなたから {0}m": "{0} m from you", "転んだ！": "Tripped!", "ふらふら…": "Dizzy...", "注目中：{0}（横・後ろに走れる）": "Locked on: {0} (strafe and back up)", "今だ！「返す！」で打ち返せる": "Now! Press Return! to hit it back", "今だ！クリックで打ち返せる": "Now! Click to hit it back", "爆弾が大きくなって足が速い": "Bigger bomb, faster feet", "受け取った直後 {0}秒は渡せない": "Can't pass for {0} s after receiving", "{0}には {1}秒 返せない": "Can't pass back to {0} for {1} s", "透明 {0}秒": "Invisible {0} s", "今だ！「返す！」": "Now! Return!", "なし": "None", "{0}点・{1}位": "{0} pts · #{1}", "爆弾が来た！ -{0}": "You got the bomb! -{0}", "セーフ！": "Close one!", "ドボン！": "Splash!", "観戦中：{0}（タップで切り替え）": "Watching: {0} (tap to switch)", "スタート！": "GO!", "部屋番号は6けたの数字です。": "The room number is 6 digits.", "ばくおに！で遊ぼう！ 部屋番号 {0}\n{1}{2}#r{3}": "Let's play Bomb Tag! Room {0}\n{1}{2}#r{3}", "ばくおに！の部屋番号：": "Bomb Tag room number: ", "コピーしました": "Copied", "　所持コイン：{0}": "  Coins: {0}", "{0}コインで買う": "Buy for {0} coins", "つけている（はずす）": "Wearing (take off)", "つける": "Wear", "試合数": "Matches", "1位": "Wins", "最高点": "Best score", "拾ったコイン": "Coins collected", "パス": "Passes", "持ちアイテム": "Items owned", "部屋番号 {0} が入っています。キャラとニックネームを決めて「入る」を押してください。": "Room number {0} is filled in. Pick a character and nickname, then press Join.", "音楽: ": "Music: ", "オン": "On", "オフ": "Off", "練習": "Practice", "オンライン対戦": "Online Match", "仲間と対戦": "Play with Friends", "3D表示の部品を読み込めませんでした。ページを再読み込みしてください。": "Couldn't load the 3D engine. Please reload the page.", "スマホのかんたん操作と同じ動きです。<br><b>W / S</b>（↑↓）前進・後退 ／ <b>A / D</b>（←→）旋回（W＋Aなら前に進みながら左へ曲がる）<br><b>マウスでドラッグ</b> 見回す（離すと視線は水平に戻る）／ <b>人をクリック</b>するとその人へ投げる<br><b>Shift</b>（画面の大きいボタンと同じ）投げる（前の相手を自動で狙う・長押しで強く）／返す！／ダッシュ → 続けて押すとスライディング<br><b>Space</b> ジャンプ（空中で壁に向かって押すと壁キック。小さな段差は自動）<br><b>Q</b> 注目（相手を見たまま、A/Dで横走り・Sで後ろへ下がる。爆弾を持っていない時は相手をクリックしても注目）／ <b>Sを2回</b> 振り向き<br><b>E</b> アイテム ／ <b>Esc</b> 一時停止 ／ <b>M</b> 音楽<br>画面右下のボタンはマウスでも押せます": "Same moves as the easy phone controls.<br><b>W / S</b> (↑↓) forward / back · <b>A / D</b> (←→) turn (W+A moves forward while turning left)<br><b>Drag the mouse</b> to look around (lets go back to level) · <b>Click a person</b> to throw at them<br><b>Shift</b> (same as the big on-screen button) Throw (auto-aims at the player ahead; hold to throw harder) / Return! / Dash → press again to slide<br><b>Space</b> Jump (press toward a wall in mid-air to wall-kick; small steps are automatic)<br><b>Q</b> Lock-on (keep facing them; A/D to strafe, S to back up. Without the bomb, clicking a player also locks on) · <b>S twice</b> turn around<br><b>E</b> Item · <b>Esc</b> Pause · <b>M</b> Music<br>The buttons at the bottom right also work with the mouse", "<b>左側</b> 上で前進・下で後退・左右で旋回（左上なら前に進みながら左へ曲がる）／2回タップでダッシュ<br><b>右側</b> なぞると見回せる（上下も）。指を離すと視線は水平に戻る ／ <b>人をタップ</b>するとその人へ投げる<br><b>大きいボタン</b> 状況で変わる：投げる（前の相手を自動で狙う・長押しで強く）／返す！（爆弾が飛んできた時）／ダッシュ → 続けて押すとスライディング<br><b>ジャンプ</b> 空中で壁に向かって押すと壁キック。小さな段差は自動でジャンプ<br><b>注目</b> ボタンか、爆弾を持っていない時に相手をタップ：相手を見たまま、左右で横走り・下で後ろへ下がる ／ 右側の空いた所を<b>2回タップ</b>で振り向き": "<b>Left side</b> up = forward, down = back, left/right = turn (up-left moves forward while turning left) · double-tap to dash<br><b>Right side</b> swipe to look around (up and down too); lift your finger to level the view · <b>Tap a person</b> to throw at them<br><b>Big button</b> changes with the situation: Throw (auto-aims at the player ahead; hold to throw harder) / Return! (when a bomb is flying at you) / Dash → press again to slide<br><b>Jump</b> press toward a wall in mid-air to wall-kick; small steps are jumped automatically<br><b>Lock-on</b> button, or tap a player when you don't have the bomb: keep facing them, left/right to strafe, down to back up · <b>double-tap</b> an empty spot on the right to turn around", "<b>左側をドラッグ</b> 移動 ／ <b>右側をドラッグ</b> 視点<br><b>投げる</b> 長押しでため、離すと投げる。爆弾を持っていない時は「返す」<br><b>ダッシュ</b>（続けて押すとスライディング）・<b>ジャンプ</b>（空中で壁キック）・<b>アイテム</b>": "<b>Drag on the left</b> to move · <b>drag on the right</b> to look<br><b>Throw</b>: hold to charge, release to throw. Without the bomb it becomes Return<br><b>Dash</b> (press again to slide) · <b>Jump</b> (wall-kick in mid-air) · <b>Item</b>", "0点": "0 pts", "音楽": "Music", "エモート": "Emote", "画面をクリックすると視点を操作できます": "Click the screen to control the camera", "ここで": "Here:", "移動": "Move", "左側：上で前進・左右で旋回": "Left side: up to go forward, left/right to turn", "左上なら進みながら左へ／2回タップでダッシュ": "Up-left moves while turning left / double-tap to dash", "右側：なぞって見回す（上下も）": "Right side: swipe to look around (up and down too)", "人をタップするとその人へ投げる": "Tap a person to throw at them", "大きいボタン：投げる（長押しで強く）／爆弾が飛んできたら「返す！」／ダッシュ→続けて押すとスライド": "Big button: Throw (hold to throw harder) / Return! when a bomb flies at you / Dash → press again to slide", "注目": "Lock-on", "ジャンプ": "Jump", "ばく": "BOMB ", "おに！": "TAG!", "爆弾を押しつけあう、3〜6人のおにごっこ": "Pass the bomb before it blows! Tag for 3–6 players", "CPUと対戦": "Play against CPUs", "だれかとマッチング": "Get matched with anyone", "お部屋を作って遊ぶ": "Make a room and play together", "ゲーム説明": "How to Play", "ショップ・きろく": "Shop & Records", "音楽: オン": "Music: On", "← タイトル": "← Title", "キャラクター": "Character", "特技": "Skill", "ニックネーム": "Nickname", "人数": "Players", "時間": "Time", "1分": "1 min", "3分": "3 min", "ステージ": "Stage", "ルール": "Rules", "個人戦": "Solo", "チーム戦": "Teams", "時間帯": "Time of day", "昼": "Day", "夕方": "Evening", "夜": "Night", "爆弾": "Bombs", "1個": "1", "2個": "2", "練習をはじめる": "Start practice", "3分・ステージはおまかせ。同じタイミングで探している人とつながります。": "3 minutes, random stage. You'll be matched with whoever is searching at the same time.", "マッチング開始": "Find a match", "部屋を作ると6けたの番号が出ます。仲間にその番号を伝えて、同じ番号で入ってもらいましょう。": "Make a room to get a 6-digit number. Tell your friends the number so they can join with it.", "部屋を作る": "Make a room", "番号をもらった人": "Got a number?", "入る": "Join", "ポイントを一番ためた人の勝ち。コインを拾って加点、爆弾を渡されると減点。時間切れで爆弾を持っていたら大減点！": "Most points wins. Pick up coins to score; getting the bomb costs points. Holding it when time runs out costs a lot!", "点数": "Points", "コイン +2": "Coin +2", "大コイン +5": "Big coin +5", "パス成功 +1〜": "Successful pass +1 or more", "爆弾を渡される -10": "Get the bomb -10", "ドカーン -100": "BOOM -100", "海に落ちる -10": "Fall in the sea -10", "爆弾の渡し方": "Passing the bomb", "爆弾を持ったまま相手にぶつかる": "Bump into someone while holding the bomb", "当たれば渡る。ちょん押しで山なり、長押しほど速い直球。外したら拾い直し": "A hit passes it on. Tap for a lob, hold for a faster, straighter throw. Miss and you pick it up again", "床に仕掛けて、踏んだ人に爆弾が移る": "Set it on the floor; whoever steps on it gets the bomb", "ジャスト返し": "Perfect return", "飛んできた爆弾を、当たる直前に打ち返す": "Hit an incoming bomb back just before it lands", "スライディング": "Slide tackle", "走りながら出すと、ぶつかった相手を転ばせて少しの間動けなくする": "Slide while running to trip whoever you hit; they can't move for a moment", "テクニック": "Techniques", "スライディングで黄色いゲートをくぐる・空中で壁キック・スライド中に曲がるとドリフト加速。爆弾を持った人が通った床にはインクが付き、持ち主は速く、逃げる人は遅くなる。爆弾は持つほど大きくなり、持ち主の足も速くなる。うまいプレイにはボーナス点。コインはしばらくすると消えて別の場所に出るので、止まっていると損をする。": "Slide under the yellow gates, wall-kick in mid-air, and turn while sliding for a drift boost. The bomb holder leaves ink on the floor: it speeds up the holder and slows down everyone else. The longer you hold the bomb, the bigger it gets and the faster you run. Good plays earn bonus points. Coins vanish after a while and pop up elsewhere, so keep moving.", "操作方法": "Controls", "スマホの操作": "Phone controls", "かんたん": "Easy", "通常": "Classic", "旋回の速さ": "Turn speed", "ゆっくり": "Slow", "ふつう": "Normal", "はやい": "Fast", "タイトルにもどる": "Back to title", "ショップ": "Shop", "試合で集めたコインで、キャラの頭や背中に付けるアイテムを買えます。": "Spend the coins you collect in matches on items for your character's head and back.", "きろく": "Records", "もどる": "Back", "部屋番号": "Room number", "4人に満たない分はCPUを入れる": "Fill up to 4 players with CPUs", "チーム戦（赤と青に分かれる）": "Team match (red vs blue)", "試合を観戦する": "Watch the match", "やめる": "Leave", "再開": "Resume", "試合をやめる": "Quit match", "順位": "Rank", "ポイント": "Points", "持っていた時間": "Time holding", "メニューに戻る": "Back to menu", "例：よしゆき": "e.g. Yoshi", "6けたの番号": "6-digit number", "言語": "Language", "1位を{0}回とる": "Win {0} match", "3位以内に{0}回入る": "Finish in the top 3, {0} times", "{0}点": "{0} pts", "　🎯 ミッション達成「{0}」+{1}": "  🎯 Mission done: \"{0}\" +{1}", "かけはし諸島で{0}回遊ぶ": "Play {0} match on Bridge Islands", "きょうのミッション": "Today's Missions", "まなびや学園で{0}回遊ぶ": "Play {0} match at Manabiya Academy", "みんなのランキング": "Leaderboard", "みんな大きくなってタッチしやすい！": "Everyone's huge, easier to tag!", "みんな足が速い！": "Everyone's faster!", "イベントタイム終了": "Event time over", "イベントタイム！": "EVENT TIME!", "イベントタイム！ {0} {1}（{2}秒）": "EVENT TIME! {0} {1} ({2} s)", "コインがどんどん出てくる！": "Coins everywhere!", "コインで{0}点ぶん集める": "Collect {0} pts worth of coins", "コインの雨": "Coin Rain", "ジャスト返しを{0}回きめる": "Land {0} perfect returns", "ジャンプが高い！ 爆弾もふわふわ": "Jump higher! The bomb floats too", "スピードアップ": "Speed Up", "スライディングで{0}人転ばせる": "Trip {0} players with slide tackles", "ミッション": "Missions", "ランキング": "Leaderboard", "ランキングは公開サイト（bomb-tag.vercel.app）で見られます。": "The leaderboard is on the public site (bomb-tag.vercel.app).", "ランキングを読み込めませんでした（準備中かもしれません）。": "Couldn't load the leaderboard (it may not be set up yet).", "今週の記録はまだありません。3分の試合で1番乗りしよう！": "No scores this week yet. Be the first in a 3-minute match!", "今週（{0}）のベスト記録。3分の試合だけが記録されます。毎週月曜にリセット。": "Best scores this week ({0}). Only 3-minute matches count. Resets every Monday.", "低重力": "Low Gravity", "巨大化": "Giants", "毎日0時に入れ替わります（あと約{0}時間）": "New missions every day at midnight JST (about {0} h left)", "爆弾を{0}回パスする": "Pass the bomb {0} times", "爆弾を合計3秒未満しか持たずに試合を終える": "Finish a match holding the bomb for under 3 s in total", "試合を{0}回遊ぶ": "Play {0} matches", "試合を最後まで遊ぶと進みます。達成するとコインがもらえます。": "Finish matches to make progress. Complete one to earn coins.", "読み込み中…": "Loading...", "達成！": "Done!", "ボイスチャット": "Voice chat", "マイク オン": "Mic on", "マイク オフ": "Mic off", "マイク": "Mic", "試合中、ほかのプレイヤーの声が聞こえます（チーム戦では味方の声だけ）。試合中もいつでも切り替えられます。": "During matches you'll hear the other players (in team matches, only your team). You can switch any time.", "マイクが使えませんでした（ブラウザの設定でマイクを許可してください）": "Couldn't use the mic (allow the microphone in your browser settings)", "🔇 マイク": "🔇 Mic", "🎙 ボイスチャットOK": "🎙 Voice chat", "🎙 オンライン対戦は、声で話しながら遊べます": "🎙 Talk with voice chat in online matches", "オンライン対戦と仲間と対戦では、ほかのプレイヤーと声で話しながら遊べます。": "In Online Match and Play with Friends you can talk to the other players by voice.", "試合の前に「マイク オン／オフ」を選べます（最初はオフ）。試合中も画面上の「🎙 マイク」ボタンでいつでも切り替えられます。": "Choose Mic on / off before the match (off at first). During the match, switch any time with the \"🎙 Mic\" button at the top of the screen.", "マイクをオンにすると話しっぱなしになります。初めての時はブラウザが「マイクを使っていいですか？」と聞くので「許可」を押してください。": "With the mic on, everything you say is sent. The first time, your browser asks to use the microphone: press Allow.", "みんなの声は同じ大きさで聞こえます。話している人の頭の上に緑の音の波マークが出ます。": "Everyone is heard at the same volume. A green sound-wave mark shows over whoever is talking.", "チーム戦では、味方の声だけが聞こえ、自分の声も味方にだけ届きます。": "In team matches you only hear your team, and only your team hears you.", "観戦中は話せません。知らない人とも話すことになるので、名前や住所など自分のことは話さないようにしましょう。": "You can't talk while spectating. You may be talking with strangers, so don't share personal details like your name or address.", "※ボイスチャットは公開サイト（bomb-tag.vercel.app）で使えます。": "* Voice chat works on the public site (bomb-tag.vercel.app).", "🔥 逆転ブースト：ダッシュ回復アップ": "🔥 Comeback boost: faster dash recharge", "場外！ 足が遅くなる ― 内側へ戻ろう": "Out of bounds! You're slowed — get back inside", "ラスト5秒": "Last 5 seconds", "🎬 ラスト5秒をリプレイ": "🎬 Replay the last 5 seconds", "{0}連鎖！ 関わったみんなに +1": "{0}-pass chain! +1 for everyone in it", "ラスト{0}秒！": "Last {0} seconds!", "場外がせまってくる！": "The zone is closing in!", "赤いところでは足が遅くなる": "You run slower in the red area", "🟥 場外がせまる": "🟥 Zone closing", "逆転ブースト！": "Comeback boost!", "パス連鎖": "PASS CHAIN", "{0}連鎖！": "{0} in a row!", "関わったみんなに +1": "+1 for everyone in it", "試合を盛り上げるルール": "Rules that heat things up", "場外がせまる": "Closing zone", "ラスト30秒になると、ステージの外側から赤いエリアが内側へせまってくる。赤いところでは足が遅くなる": "In the last 30 seconds a red area closes in from the edges of the stage. You run slower inside it.", "4秒以内に次々と爆弾が渡ると連鎖。3連鎖目から、関わったみんなに +1": "Pass the bomb on within 4 seconds again and again to build a chain. From the 3rd pass, everyone in the chain gets +1.", "逆転ブースト": "Comeback boost", "最下位で1位と大きく差がついている人は、ダッシュの回復が速くなる": "Whoever is in last place, far behind the leader, recharges dash faster.", "リプレイ": "Replay", "結果画面の「ラスト5秒をリプレイ」で、爆発までの5秒をもう一度見られる": "On the results screen, tap \"Replay the last 5 seconds\" to watch the run-up to the blast again.", "魔界": "Demon", "魔界キャッスル": "Demon Castle", "{0}が溶岩をふんだ！ -{1}": "{0} stepped in lava! -{1}", "アチチッ！ 溶岩 -{0}": "Ouch, hot! Lava -{0}", "アチチッ！": "Ouch, hot!", "ワープ！": "Warp!", "© 2026 スタジオ・ペン": "© 2026 Studio Pen"};
 const JA_OF = {}; for (const k of ["カケル", "リン", "モモ", "ソラ", "シオン", "ゴウ", "あなた", "誰か", "プレイヤー", "ホスト", "ストリートタウン", "まなびや学園", "カラフルキューブ", "かけはし諸島", "罠", "おとり爆弾", "透明マント", "ワープ", "手渡し", "投げ", "赤チーム", "青チーム", "職員室", "1年1組", "1年2組", "1年3組", "1年4組", "保健室", "家庭科室", "図書室", "購買", "・バンク"]) JA_OF[EN[k]] = k;
 let LANG = (() => { try { const s = localStorage.getItem('bt_lang'); if (s === 'ja' || s === 'en') return s; } catch (e) {} return /^ja/i.test(navigator.language || '') ? 'ja' : 'en'; })();
 const VC = {
@@ -780,7 +780,9 @@ const r2 = v => Math.round(v * 100) / 100;
 const rnd = (a, b) => a + Math.random() * (b - a);
 const wrapA = a => { while (a > Math.PI) a -= Math.PI * 2; while (a < -Math.PI) a += Math.PI * 2; return a; };
 const norm = (x, z) => { const l = Math.hypot(x, z) || 1; return { x: x / l, z: z / l }; };
-const cleanName = s => (typeof s === 'string' && s.trim() ? s.trim() : xl('プレイヤー')).replace(/[\u0000-\u001f\u200b-\u200f\u2028-\u202e\u2066-\u2069]/g, '').slice(0, 12);
+// names come from other players: no control characters and nothing that could be read as HTML
+const cleanName = s => (typeof s === 'string' && s.trim() ? s.trim() : xl('プレイヤー')).replace(/[\u0000-\u001f\u200b-\u200f\u2028-\u202e\u2066-\u2069<>&"'`]/g, '').slice(0, 12);
+const escH = t => String(t).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
 
 let settings = { players: 5, duration: 180, stage: 'town', tod: 'day', team: false, bombs: 1 };
 let teamMode = false;
@@ -859,6 +861,18 @@ const canvas = $('game');
 const renderer = new T.WebGLRenderer({ canvas, antialias: !isTouch, powerPreference: 'high-performance' });
 renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, isTouch ? 1.5 : 2));
 const scene = new T.Scene();
+// throwing away a 3D object: take it out and free its GPU memory (geometries, materials, their pictures),
+// except what is shared between many objects (cached materials and textures)
+const SHARED = new WeakSet();
+function disposeObj(o) {
+  if (!o) return;
+  if (o.parent) o.parent.remove(o);
+  o.traverse(n => {
+    if (n.geometry && !SHARED.has(n.geometry)) n.geometry.dispose();
+    const ms = Array.isArray(n.material) ? n.material : n.material ? [n.material] : [];
+    for (const m of ms) { if (SHARED.has(m)) continue; if (m.map && !SHARED.has(m.map)) m.map.dispose(); m.dispose(); }
+  });
+}
 const SKY = new T.Color('#9fe3ff');
 scene.background = SKY;
 scene.fog = new T.Fog(SKY, 34, 85);
@@ -1020,7 +1034,7 @@ function glowTexture(color) {
   g.fillStyle = gr; g.fillRect(0, 0, 64, 64);
   return new T.CanvasTexture(c);
 }
-const sparkTex = glowTexture('#ffcf3a');
+const sparkTex = glowTexture('#ffcf3a'); SHARED.add(sparkTex);
 
 /* ---------- arena ---------- */
 const ground = new T.Mesh(new T.PlaneGeometry(HALF * 2, HALF * 2), new T.MeshLambertMaterial({ map: groundTexture() }));
@@ -1029,7 +1043,7 @@ const plazaGroundTex = ground.material.map;
 let townGroundTex = null;
 const outer = new T.Mesh(new T.PlaneGeometry(400, 400), new T.MeshLambertMaterial({ color: '#7fd0b0' }));
 outer.rotation.x = -Math.PI / 2; outer.position.y = -0.02; scene.add(outer);
-const edgeMat = new T.LineBasicMaterial({ color: '#1c1633', transparent: true, opacity: 0.5 });
+const edgeMat = new T.LineBasicMaterial({ color: '#1c1633', transparent: true, opacity: 0.5 }); SHARED.add(edgeMat);
 let edgesOn = true;   // cartoon outlines on the small stages; none in the realistic town
 ground.receiveShadow = true;
 const BOXES = [];
@@ -1900,7 +1914,7 @@ function buildStage(id, tod) {
     arena.remove(c);
     c.traverse(o => {
       if (o.geometry) o.geometry.dispose();
-      for (const mm of Array.isArray(o.material) ? o.material : [o.material]) if (mm && mm !== edgeMat) mm.dispose();
+      for (const mm of Array.isArray(o.material) ? o.material : [o.material]) if (mm && mm !== edgeMat) { if (mm.map && !SHARED.has(mm.map)) mm.map.dispose(); mm.dispose(); }   // its picture too
     });
   }
   BOXES.length = 0; DYN.length = 0; ANIM.length = 0; shut.last = -1;
@@ -1993,7 +2007,7 @@ function canvasTex(key, w, h, draw) {
   const t = new T.CanvasTexture(c);
   t.wrapS = t.wrapT = T.RepeatWrapping;
   try { t.anisotropy = Math.min(8, renderer.capabilities.getMaxAnisotropy()); } catch (e) {}
-  return (texCache[key] = t);
+  SHARED.add(t); return (texCache[key] = t);
 }
 // seeded random so the town looks the same every time it is built
 let seedR = 1;
@@ -2001,7 +2015,7 @@ function srand(s) { seedR = Math.abs(Math.floor(s)) % 2147483646 + 1; }
 function rr() { seedR = (seedR * 16807) % 2147483647; return (seedR - 1) / 2147483646; }
 const DM = {};   // shared materials for small street things
 function mat(key, color, basic) {
-  if (!DM[key]) DM[key] = basic ? new T.MeshBasicMaterial({ color }) : new LamMat({ color });
+  if (!DM[key]) { DM[key] = basic ? new T.MeshBasicMaterial({ color }) : new LamMat({ color }); SHARED.add(DM[key]); }
   return DM[key];
 }
 function deco(geo, m, x, y, z, shadow) {
@@ -2944,13 +2958,14 @@ function rpRecord() {
     a.kind === 'me' || (isAuth() && a.kind === 'cpu') ? (!a.onGround ? 1 : 0) : (a.netAir ? 1 : 0),
     a.kind === 'me' || (isAuth() && a.kind === 'cpu') ? (a.slideT > 0 ? 1 : 0) : (a.netSlide ? 1 : 0), a.tripT || 0, a.invisT > 0 ? 1 : 0]);
   const fly = bombMesh.visible ? [bombMesh.position.x, bombMesh.position.y, bombMesh.position.z] : null;
-  RP.buf.push({ rows, holder: bomb.state === 'hand' ? bomb.owner : null, fly });
-  if (RP.buf.length > RP_LEN / RP_HZ + 2) RP.buf.shift();
+  // each frame keeps its own time: at 30 fps the gaps are longer than RP_HZ, and the replay must not speed up
+  RP.buf.push({ t: clock, rows, holder: bomb.state === 'hand' ? bomb.owner : null, fly });
+  while (RP.buf.length > 2 && clock - RP.buf[1].t > RP_LEN) RP.buf.shift();
 }
 function rpStart() {
   if (RP.on || RP.buf.length < 20) return;
   RP.saved = agents.map(a => [a, a.x, a.y, a.z, a.yaw, a.rx, a.ry, a.rz, a.ryaw, a.ip, a.netSpd, a.netAir, a.netSlide, a.tripT, a.invisT]);
-  RP.on = true; RP.t = 0; RP.dur = (RP.buf.length - 1) * RP_HZ; RP.boomed = false; RP.endT = 0;
+  RP.on = true; RP.t = 0; RP.t0 = RP.buf[0].t; RP.dur = RP.buf[RP.buf.length - 1].t - RP.t0; RP.boomed = false; RP.endT = 0;
   const last = RP.buf[RP.buf.length - 1];
   RP.ang = me ? Math.atan2(camera.position.x - (last.holder ? last.holder.rx : 0), camera.position.z - (last.holder ? last.holder.rz : 0)) : 0;
   RP.cx = camera.position.x; RP.cy = camera.position.y; RP.cz = camera.position.z;
@@ -2968,8 +2983,10 @@ function rpApply(dt) {
   if (!RP.on) return;
   if (state !== 'result') { rpStop(true); return; }
   RP.t += dt * 0.6;   // a bit slower than real time
-  const f = Math.min(RP.buf.length - 1, RP.t / RP_HZ), i = Math.floor(f), k = f - i;
-  const A = RP.buf[i], B = RP.buf[Math.min(RP.buf.length - 1, i + 1)];
+  const tt = RP.t0 + RP.t, nb = RP.buf.length;
+  let i = 0; while (i < nb - 2 && RP.buf[i + 1].t <= tt) i++;
+  const A = RP.buf[i], B = RP.buf[Math.min(nb - 1, i + 1)];
+  const k = B === A ? 0 : Math.max(0, Math.min(1, (tt - A.t) / Math.max(1e-6, B.t - A.t)));
   for (let j = 0; j < A.rows.length; j++) {
     const r = A.rows[j], q = (B.rows.find(x => x[0] === r[0]) || r), a = r[0];
     if (!agents.includes(a)) continue;
@@ -3169,18 +3186,26 @@ const isAuth = () => mode === 'offline' || amHost;
 const agentById = id => agents.find(a => a.id === id) || null;
 
 function clearMatch() {
-  for (const a of agents) scene.remove(a.mesh);
-  for (const it of items) scene.remove(it.mesh);
-  for (const c of coins) scene.remove(c.mesh);
-  for (const p of particles) scene.remove(p.mesh);
+  for (const a of agents) disposeAgent(a);
+  for (const it of items) disposeObj(it.mesh);
+  for (const c of coins) disposeObj(c.mesh);
+  for (const p of particles) disposeObj(p.mesh);
   rpStop(true); RP.buf = []; chainIds = [];
   agents = []; items = []; decoys = []; particles = []; me = null; itemsKey = '';
   coins = []; coinsKey = ''; coinT = 0; spurtDone = false;
-  evList = []; evSeq = 0; lastEvSeq = 0; prevOwnerId = null; loser = null;
-  bomb.owner = null; bomb.state = 'hand';
+  // put the two bombs back in order and forget who held them (else the next match thinks the bomb just changed hands)
+  if (bomb.n !== 1) swapB();
+  evList = []; evSeq = 0; lastEvSeq = 0; prevOwnerId = null; prev2 = null; loser = null; loser2 = null; twoBombs = false;
+  bomb.owner = null; bomb.state = 'hand'; bomb2.owner = null; bomb2.state = 'off';
   aiming = false; chargeT = 0;
   camera.fov = 74; camera.updateProjectionMatrix();
+  // the match's own pieces are drawn only during a match: hide them (quitting from the pause menu stops the loop that would)
+  for (const o of [viewBomb, bombMesh, bombMesh2, trapMesh, lockMark, focusMark, arcLine, arcMark, bombShadow]) o.visible = false;
+  for (const [f, w] of zoneParts) f.visible = w.visible = false;
+  inkClear();
 }
+// a player's body, name tag, speech bubble and accessory all belong to it alone
+function disposeAgent(a) { if (a && a.mesh) disposeObj(a.mesh); }
 function makeAgent(id, name, ci, kind) {
   const color = PALETTE[ci % PALETTE.length];
   const a = {
@@ -3217,7 +3242,7 @@ function beginMatch(duration) {
   matchDur = duration; evt = null; evtLast = null;
   evtPlan = duration >= 150 ? [50, 110] : duration >= 90 ? [35] : [22];
   if (bomb.n !== 1) swapB();
-  twoBombs = mode === 'offline' && settings.bombs === 2 && agents.length >= 4; loser2 = null; prev2 = null;
+  twoBombs = mode === 'offline' && settings.bombs === 2 && agents.length >= 4; loser2 = null; prev2 = null; prevOwnerId = null;
   const first = agents[Math.floor(Math.random() * agents.length)];
   Object.assign(bomb, { owner: first, state: 'hand', flyT: 0, armT: 0, trapT: 0 });
   first.noPassT = 1.0;
@@ -3714,6 +3739,8 @@ function schedule() {
   music.padLP.frequency.setTargetAtTime(500 + 250 * L + 1200 * music.riser, ac.currentTime, 0.3);
   music.bassLP.frequency.setTargetAtTime(600 + 200 * L, ac.currentTime, 0.3);
   if (music.dlyL) { const e = 60 / music.tempo * 0.75; music.dlyL.delayTime.setTargetAtTime(e, ac.currentTime, 0.1); music.dlyR.delayTime.setTargetAtTime(e, ac.currentTime, 0.1); }
+  // after a long stall (background tab, busy page) skip the missed steps instead of firing them all at once
+  if (music.nextT < ac.currentTime - 0.25) { const spb = 60 / music.tempo / 4, miss = Math.ceil((ac.currentTime - music.nextT) / spb); music.nextT += miss * spb; music.step = (music.step + miss) % 512; }
   while (music.nextT < ac.currentTime + 0.15) {
     const spb = 60 / music.tempo / 4;
     playStep(music.step, music.nextT, spb);
@@ -4031,7 +4058,7 @@ const coinMats = {};
 function coinMesh(x, y, z, v) {
   const big = v >= 5;
   const col = big ? '#ff9a3d' : '#ffd23f';
-  const mat = coinMats[col] || (coinMats[col] = new LamMat({ color: col, emissive: big ? '#7a3a00' : '#6b5200' }));
+  let mat = coinMats[col]; if (!mat) { mat = coinMats[col] = new LamMat({ color: col, emissive: big ? '#7a3a00' : '#6b5200' }); SHARED.add(mat); }
   const r = big ? 0.42 : 0.3;
   const m = new T.Mesh(new T.CylinderGeometry(r, r, 0.09, 20), mat);
   m.rotation.x = Math.PI / 2;
@@ -4082,7 +4109,7 @@ function updateCoins(dt) {
       if (got === me) coinFx(v);
       else if (c.v >= 5 || Math.random() < 0.25) sayBubble(got, pick(got.ch.coin));
     }
-    if (got || c.life <= 0) { scene.remove(c.mesh); coins.splice(k, 1); }
+    if (got || c.life <= 0) { disposeObj(c.mesh); coins.splice(k, 1); }
   }
   coinT -= dt;
   const rush = timeLeft <= 10;
@@ -4145,7 +4172,8 @@ function showPause() {
   $('pauseLead').textContent = mode === 'online' ? xl('オンライン対戦中は試合が止まりません。「再開」で戻ります。') : xl('「再開」で試合に戻ります。');
   $('pause').hidden = false;
 }
-addEventListener('blur', () => { for (const k in keys) keys[k] = false; });
+// leaving the window: let go of every key, and stop aiming (the Shift release would never arrive)
+addEventListener('blur', () => { for (const k in keys) keys[k] = false; aiming = false; chargeT = 0; });
 let dragLook = null;
 canvas.addEventListener('mousedown', e => {
   if (isTouch || e.button !== 0) return;
@@ -5155,7 +5183,7 @@ function update(dt) {
       if (Math.hypot(a.x - it.x, a.z - it.z) < 1.0 && Math.abs(a.y + 0.6 - it.y) < 1.2) {
         a.item = KINDS[Math.floor(Math.random() * KINDS.length)];
         ev(xlm('アイテム「{0}」を拾った', ITEM_NAMES[a.item]), '#c8f53a', a.id, 'pick');
-        scene.remove(it.mesh); items.splice(k, 1);
+        disposeObj(it.mesh); items.splice(k, 1);
         break;
       }
     }
@@ -5187,7 +5215,7 @@ function doEmote(i) {
 function attachAcc(a, id) {
   if (!a || !a.mesh) return;
   const ud = a.mesh.userData;
-  if (ud.acc) { ud.acc.parent && ud.acc.parent.remove(ud.acc); ud.acc = null; }
+  if (ud.acc) { disposeObj(ud.acc); ud.acc = null; }
   a.accId = id || null;
   if (!id) return;
   const g = new T.Group(), tm = c => new T.MeshToonMaterial({ color: c, gradientMap: toonGrad, transparent: true });
@@ -5243,7 +5271,7 @@ function explode() {
   bomb2.state = 'off';
   const isMe = L === me, nm = a => a === me ? xl('あなた') : a ? a.name : xl('誰か');
   $('big').className = '';
-  $('big').innerHTML = loser2 ? xlf('ダブルでドカーン！<small>{0}と{1}が爆弾を持っていた</small>', nm(L), nm(loser2)) : xlf('ドカーン！<small>{0}が爆弾を持っていた</small>', isMe ? xl('あなた') : (L ? L.name : xl('誰か')));
+  $('big').innerHTML = loser2 ? xlf('ダブルでドカーン！<small>{0}と{1}が爆弾を持っていた</small>', escH(xn(nm(L))), escH(xn(nm(loser2)))) : xlf('ドカーン！<small>{0}が爆弾を持っていた</small>', escH(xn(isMe ? xl('あなた') : (L ? L.name : xl('誰か')))));
   musicStop();
   if (document.pointerLockElement) { hadLock = false; try { document.exitPointerLock(); } catch (e) {} }
 }
@@ -5293,8 +5321,15 @@ async function rankSubmit(pts, md) {
   const wk = weekKey(), key = 'bt_wb_' + md;
   let best = null; try { const s = JSON.parse(localStorage.getItem(key) || 'null'); if (s && s.w === wk) best = s.p; } catch (e) {}
   if (best !== null && pts <= best) return;
-  try { localStorage.setItem(key, JSON.stringify({ w: wk, p: pts })); } catch (e) {}
-  try { await db.from('bt_scores').insert({ week: wk, name: rankName(), ch: myChar, pts: Math.max(-2000, Math.min(2000, Math.round(pts))), mode: md, player: myPid }); } catch (e) {}
+  const row = { week: wk, name: rankName(), ch: myChar, pts: Math.max(-2000, Math.min(2000, Math.round(pts))), mode: md, player: myPid };
+  try {
+    // through the checking function on the server (supabase/bt_scores_secure.sql); the plain insert is only for a database not updated yet
+    let { error } = await db.rpc('bt_submit', { p_week: row.week, p_name: row.name, p_ch: row.ch, p_pts: row.pts, p_mode: row.mode, p_player: row.player });
+    if (error && (error.code === 'PGRST202' || error.code === '42883')) ({ error } = await db.from('bt_scores').insert(row));
+    if (error) return;
+    // remember the best only once it is really sent, so a failed send is tried again next time
+    try { localStorage.setItem(key, JSON.stringify({ w: wk, p: pts })); } catch (e) {}
+  } catch (e) {}
 }
 let rankMode = 'online';
 async function renderRanking() {
@@ -5395,20 +5430,25 @@ function vcAttach(r) {
   VC.room = r;
   VC.off = r.voice.onAudio((peer, st) => {
     const old = VC.peers.get(peer);
-    if (old) { try { old.el.pause(); old.el.srcObject = null; old.el.remove(); } catch (e) {} VC.peers.delete(peer); }
+    if (old) { vcDrop(old); VC.peers.delete(peer); }
     if (!st) return;
     const el = document.createElement('audio'); el.autoplay = true; el.setAttribute('playsinline', ''); el.srcObject = st; el.muted = true;
     document.body.append(el); el.play().catch(() => {});
-    let an = null;
-    try { if (ac) { const src = ac.createMediaStreamSource(st); an = ac.createAnalyser(); an.fftSize = 256; src.connect(an); } } catch (e) {}
-    VC.peers.set(peer, { el, an, lvl: 0 });
+    let an = null, src = null;
+    try { if (ac) { src = ac.createMediaStreamSource(st); an = ac.createAnalyser(); an.fftSize = 256; src.connect(an); } } catch (e) {}
+    VC.peers.set(peer, { el, an, src, lvl: 0 });
   });
   if (VC.want && !spectating) vcMic(true);
+}
+// a voice that stops: the audio element and the level meter go (the meter's source would otherwise stay connected)
+function vcDrop(v) {
+  try { v.el.pause(); v.el.srcObject = null; v.el.remove(); } catch (e) {}
+  try { if (v.src) v.src.disconnect(); } catch (e) {}
 }
 function vcDetach() {
   if (VC.off) { try { VC.off(); } catch (e) {} VC.off = null; }
   vcMic(false, true);
-  for (const v of VC.peers.values()) { try { v.el.pause(); v.el.srcObject = null; v.el.remove(); } catch (e) {} }
+  for (const v of VC.peers.values()) vcDrop(v);
   VC.peers.clear(); VC.room = null;
   $('btnMic').hidden = true;
   if (music.out) setMusic(music.on);
@@ -5417,7 +5457,8 @@ async function vcMic(on, quiet) {
   if (!on) {
     if (VC.room && VC.room.voice) VC.room.voice.setMic(null);
     if (VC.stream) for (const t of VC.stream.getTracks()) t.stop();
-    VC.stream = null; VC.meAn = null; VC.on = false; vcButton();
+    try { if (VC.meSrc) VC.meSrc.disconnect(); } catch (e) {}
+    VC.stream = null; VC.meAn = null; VC.meSrc = null; VC.on = false; vcButton();
     return;
   }
   if (!VC.room || VC.on) return;
@@ -5426,7 +5467,7 @@ async function vcMic(on, quiet) {
     if (!VC.room) { for (const t of st.getTracks()) t.stop(); return; }
     VC.stream = st; VC.on = true;
     VC.room.voice.setMic(st.getAudioTracks()[0]);
-    try { if (ac) { const src = ac.createMediaStreamSource(st); VC.meAn = ac.createAnalyser(); VC.meAn.fftSize = 256; src.connect(VC.meAn); } } catch (e) {}
+    try { if (ac) { VC.meSrc = ac.createMediaStreamSource(st); VC.meAn = ac.createAnalyser(); VC.meAn.fftSize = 256; VC.meSrc.connect(VC.meAn); } } catch (e) {}
     if (!quiet) pop(xl('マイク オン'), '#c8f53a');
   } catch (e) {
     VC.on = false; toast(xl('マイクが使えませんでした（ブラウザの設定でマイクを許可してください）'), '#ff6b5a');
@@ -5478,8 +5519,10 @@ function vcIcon(a, on) {
   if (ud.talk) { ud.talk.visible = on; if (on) ud.talk.scale.setScalar(0.4 + Math.sin(clock * 18) * 0.04); }
 }
 let lob = null, lobKind = 'public', lobCode = '';
-const lobby = { active: false, at: 0, readySince: 0, iv: null };
+const lobby = { active: false, at: 0, readySince: 0, iv: null, ahead: new Set(), aheadT: 0 };
 let sendT = 0, lastG = null, waitT = 0, hostGoneT = 0, lastGAt = 0, gGap = 0;
+// who belongs to this match room (only they may take part, take over as host or join a rematch); when this tab last stalled
+let roster = new Set(), lastNetAt = 0, stallAt = -1e9;
 let specLabel = '';
 let matchNo = 0, hostEpoch = 0, wantAgain = 0, rematchBusy = false, awayT = 0, spectating = false, specIdx = 0, ghost = null;
 const INTERP_MS = 110;
@@ -5497,7 +5540,7 @@ function readNick() {
   $('nick').value = nick;
   try { localStorage.setItem('bt_nick', nick); } catch (e) {}
 }
-const validCode = c => /^\d{4}$/.test(c);
+const validCode = c => /^\d{6}$/.test(c);   // 6 digits: too many to find a room by trying numbers
 async function enterLobby(kind = 'public', code = '') {
   readNick();
   leaveOnline(); clearMatch(); state = 'lobby';
@@ -5549,9 +5592,16 @@ function lobbyTick() {
   for (const p of lob.peers()) {
     if (p.sameTab) continue;
     const mm = p.presence && p.presence.mm;
-    if (mm && typeof mm.room === 'string' && Array.isArray(mm.m) && myPeer && mm.m.includes(myPeer)) { joinAsClient(mm.room, p.peer); return; }
+    // only from a player who was ahead of us in the queue (the one who would start the match), not anyone in the lobby
+    if (mm && typeof mm.room === 'string' && /^g[a-z0-9]{1,16}$/.test(mm.room) && Array.isArray(mm.m) && mm.m.length <= 5 && myPeer && mm.m.includes(myPeer)
+      && ((p.presence.st === 'host' && lobby.ahead.has(p.peer))
+        || (lobKind === 'friend' && p.presence.st === 'game' && p.presence.gr === mm.room))) { joinAsClient(mm.room, p.peer); return; }   // friends' room: the match going on now pulls in newcomers
   }
   const w = waitingPeers();
+  const myI = w.findIndex(p => p.sameTab);
+  // remember who is ahead (kept for a while: the host leaves the queue the moment it sends the invitation)
+  if (myI > 0) { lobby.ahead = new Set(w.slice(0, myI).map(p => p.peer)); lobby.aheadT = Date.now(); }
+  else if (Date.now() - lobby.aheadT > 3000) lobby.ahead = new Set();
   const busy = lobKind === 'friend' && lob.peers().some(p => !p.sameTab && p.presence && (p.presence.st === 'host' || p.presence.st === 'game'));
   renderLobby(w, busy);
   if (!w.length || !w[0].sameTab || !myPeer || busy) return;
@@ -5602,6 +5652,7 @@ async function startAsHost(members, fill) {
   try { groom = await room.join(name); } catch (e) { abortOnline(xl('対戦部屋を作れませんでした。')); return; }
   vcAttach(groom);
   mode = 'online'; amHost = true; hostPeer = myPeer; myActs = []; matchNo = 0; hostEpoch = 0; wantAgain = 0;
+  roster = new Set(members); roster.add(myPeer);
   groom.presence({ n: nick, ch: myChar, x: 0, y: 0, z: 0, yaw: 0, a: [] }).catch(() => {});
   showConnecting(xl('メンバーを待っています…'));
   waitMembers(others, 5000, present => hostInit(present, fill));
@@ -5614,7 +5665,8 @@ function waitMembers(ids, ms, go) {
     const here = new Set(groom.peers().filter(p => p.presence && typeof p.presence.n === 'string').map(p => p.peer));
     if (ids.every(o => here.has(o)) || Date.now() - t0 > ms) {
       clearInterval(iv);
-      go(groom.peers().filter(p => !p.sameTab && p.kind === 'viewer').map(p => p.peer));
+      // only the invited players: someone who just found the room name can't slip into the match
+      go(groom.peers().filter(p => !p.sameTab && p.kind === 'viewer' && roster.has(p.peer)).map(p => p.peer));
     }
   }, 200);
 }
@@ -5653,10 +5705,11 @@ async function watchMatch() {
   stopLobby(false);
   lob.presence({ st: 'watch' }).catch(() => {});
   try { groom = await room.join(hp.presence.gr); } catch (e) { abortOnline(xl('試合の部屋に入れませんでした。')); return; }
-  mode = 'online'; amHost = false; hostPeer = null; matchNo = -1; hostEpoch = 0; wantAgain = 0;
+  mode = 'online'; amHost = false; hostPeer = hp.peer; matchNo = -1; hostEpoch = 0; wantAgain = 0; roster = new Set([hp.peer]);
   clearMatch(); lastG = null; waitT = 0; hostGoneT = 0; myActs = []; lastGAt = performance.now();
   spectating = true; specIdx = 0;
   vcAttach(groom);
+  if (ghost) disposeAgent(ghost);
   ghost = makeAgent('spec', xl('観戦'), 0, 'spec'); ghost.mesh.visible = false; me = ghost;
   groom.presence({ n: nick, ch: myChar, x: 0, y: 0, z: 0, yaw: 0, a: [], spec: 1 }).catch(() => {});
   showConnecting(xl('試合に追いついています…'));
@@ -5666,7 +5719,7 @@ async function joinAsClient(roomName, host) {
   lob.presence({ st: 'game', force: false }).catch(() => {});
   try { groom = await room.join(roomName); } catch (e) { abortOnline(xl('対戦部屋に入れませんでした。')); return; }
   vcAttach(groom);
-  mode = 'online'; amHost = false; hostPeer = host; matchNo = 0; hostEpoch = 0; wantAgain = 0;
+  mode = 'online'; amHost = false; hostPeer = host; matchNo = 0; hostEpoch = 0; wantAgain = 0; roster = new Set([host]);
   clearMatch(); lastG = null; waitT = 0; hostGoneT = 0; myActs = []; lastGAt = performance.now();
   groom.presence({ n: nick, ch: myChar, x: 0, y: 0, z: 0, yaw: 0, a: [] }).catch(() => {});
   showConnecting(xl('ホストの準備を待っています…'));
@@ -5680,7 +5733,7 @@ function leaveOnline() {
   stopLobby(true);
   vcDetach();
   if (groom) { try { groom.leave().catch(() => {}); } catch (e) {} groom = null; }
-  mode = 'offline'; amHost = false; hostPeer = null; rematchBusy = false;
+  mode = 'offline'; amHost = false; hostPeer = null; rematchBusy = false; lastNetAt = 0; stallAt = -1e9;
 }
 function abortOnline(msg) {
   leaveOnline(); clearMatch(); musicStop();
@@ -5753,7 +5806,7 @@ function applyState(g) {
   if (g.SG >= 0 && g.SG <= 3) curSong = g.SG | 0;
   if (+g.MD >= 20 && +g.MD <= 600) matchDur = +g.MD;
   evt = Array.isArray(g.EV) && EVTS[+g.EV[0]] ? { k: EVTS[+g.EV[0]], left: +g.EV[1] || 0 } : null;
-  if (typeof g.S === 'string' && STAGES[g.S] && STAGE.id !== g.S) buildStage(g.S, typeof g.TD === 'string' ? g.TD : 'day');
+  if (typeof g.S === 'string' && Object.prototype.hasOwnProperty.call(STAGES, g.S) && STAGE.id !== g.S) buildStage(g.S, typeof g.TD === 'string' ? g.TD : 'day');
   else if (typeof g.TD === 'string' && g.TD !== curTOD && ['day', 'evening', 'night'].includes(g.TD)) applyTOD(g.TD);
   const T = +g.T;
   const ids = new Set();
@@ -5782,7 +5835,19 @@ function applyState(g) {
     a.holdTime = +r[17] || 0; a.passes = +r[18] || 0; a.pts = +r[21] || 0; a.coinsGot = +r[23] || 0; a.parryN = +r[24] || 0; a.team = +r[25] || 0; a.tackles = +r[27] || 0;
     const tr = +r[26] || 0; if (tr > (a.tripT || 0) + 0.3 && a === me) { shake = Math.max(shake, 0.3); buzz([80, 40, 80]); } a.tripT = tr;
   }
-  for (let k = agents.length - 1; k >= 0; k--) if (!ids.has(agents[k].id)) { scene.remove(agents[k].mesh); agents.splice(k, 1); }
+  for (let k = agents.length - 1; k >= 0; k--) {
+    const a = agents[k];
+    if (ids.has(a.id)) continue;
+    disposeAgent(a); agents.splice(k, 1);
+    if (a === me) {
+      // the host let us go (our connection broke for a while): watch the rest of this match, play again from the next one
+      if (ghost) disposeAgent(ghost);
+      ghost = makeAgent('spec', xl('観戦'), 0, 'spec'); ghost.mesh.visible = false;
+      ghost.x = a.x; ghost.y = a.y; ghost.z = a.z; ghost.yaw = a.yaw;
+      me = ghost; spectating = true; specIdx = 0; vcMic(false, true);
+      toast(xl('通信が切れていたため、この試合は観戦になりました。次の試合から参加できます。'), '#ff6b5a');
+    }
+  }
   if (Array.isArray(g.B) && state !== 'end' && state !== 'result') {
     const ns = BSN[+g.B[0]] || 'hand';
     if (ns !== bomb.state) nbClear(bomb);
@@ -5797,7 +5862,7 @@ function applyState(g) {
   const key = JSON.stringify(g.I || []);
   if (key !== itemsKey) {
     itemsKey = key;
-    for (const it of items) scene.remove(it.mesh);
+    for (const it of items) disposeObj(it.mesh);
     items = (Array.isArray(g.I) ? g.I : []).map(i => ({ x: +i[0], y: +i[1], z: +i[2], mesh: itemMesh(+i[0], +i[1], +i[2]) }));
   }
   const ck = JSON.stringify((g.C || []).map(c => Array.isArray(c) ? c.slice(0, 4) : 0));
@@ -5808,7 +5873,7 @@ function applyState(g) {
     for (const c of coins) {
       const keep = nc.find(n => same(n, c) && !n.mesh);
       if (keep) { keep.mesh = c.mesh; continue; }
-      scene.remove(c.mesh);
+      disposeObj(c.mesh);
       // a coin that vanished right next to me: I picked it up
       if (me && state === 'play' && c.life > 1.2 && Math.hypot(me.x - c.x, me.z - c.z) < 1.8) coinFx(c.v);
     }
@@ -5854,7 +5919,7 @@ function nextHost(pm) {
 }
 function dropAgent(a, why) {
   const k = agents.indexOf(a); if (k < 0) return;
-  scene.remove(a.mesh); agents.splice(k, 1);
+  disposeAgent(a); agents.splice(k, 1);
   if (why) ev(why, '#c9bfe6');
   if (bomb.owner === a && agents.length && inGame()) {
     bomb.owner = agents[Math.floor(Math.random() * agents.length)];
@@ -5892,6 +5957,8 @@ function hostClaims(pm) {
   let best = null;
   for (const p of pm.values()) {
     if (p.sameTab) continue;
+    // only the current host or a player of this match can be host (not someone who just walked into the room)
+    if (p.peer !== hostPeer && !isPlayer(p.peer)) continue;
     const g = p.presence && p.presence.g;
     if (!g || !Array.isArray(g.A)) continue;
     const ep = +g.EP || 0;
@@ -5899,14 +5966,28 @@ function hostClaims(pm) {
   }
   return best;
 }
+// a host steps down for another player only when that hand-over really happened:
+// someone else already follows them, or the connection between us broke (this tab stalled, or they went quiet for a while)
+const isPlayer = id => { const a = agentById(id); return !!a && a.kind === 'remote'; };
+function hostLostTo(peer, pm, nowT) {
+  for (const p of pm.values()) if (!p.sameTab && p.peer !== peer && isPlayer(p.peer) && p.presence && p.presence.hp === peer) return true;
+  if (nowT - stallAt < 10000) return true;
+  const a = agentById(peer);
+  return !!(a && nowT - (a.blipAt || -1e9) < 10000);
+}
 function netStep(dt) {
   if (mode !== 'online' || !groom) return;
   if (!myPeer && room) myPeer = myPeerIn(room);
   const pm = peerMap();
+  const nowT = performance.now();
+  if (document.hidden || (lastNetAt && nowT - lastNetAt > 1000)) stallAt = nowT;
+  lastNetAt = nowT;
   const claim = hostClaims(pm);
-  if (amHost && claim && (claim.ep > hostEpoch || (claim.ep === hostEpoch && claim.peer < myPeer)) && claim.g.M >= matchNo) becomeClient(claim.peer, claim.g);
+  if (amHost && claim && (claim.ep > hostEpoch || (claim.ep === hostEpoch && hostEpoch > 0 && claim.peer < myPeer)) && claim.g.M >= matchNo && hostLostTo(claim.peer, pm, nowT)) becomeClient(claim.peer, claim.g);
   if (!amHost) {
-    if (claim && claim.peer !== hostPeer && (claim.ep > hostEpoch || !pm.has(hostPeer))) { hostPeer = claim.peer; hostEpoch = claim.ep; }
+    // follow a new host only when the one we follow has really gone quiet (a player can't just declare themselves host)
+    const stale = !pm.has(hostPeer) || nowT - lastGAt > 1000;
+    if (claim && claim.peer !== hostPeer && claim.ep > hostEpoch && stale) { hostPeer = claim.peer; hostEpoch = claim.ep; }
     let hp = pm.get(hostPeer);
     if (hp && hp.presence && hp.presence.away) { awayT += dt; if (awayT > 1.5) hp = null; } else awayT = 0;
     if (!hp) {
@@ -5934,7 +6015,9 @@ function netStep(dt) {
     a.goneT = 0;
     const q = p.presence || {};
     if (q !== a.lastQ && typeof q.x === 'number' && isFinite(q.x)) {
-      a.lastQ = q; a.seenAt = performance.now();
+      const tq = performance.now();
+      if (a.seenAt && tq - a.seenAt > 1000) a.blipAt = tq;
+      a.lastQ = q; a.seenAt = tq;
       a.x = q.x; a.y = +q.y || 0; a.z = +q.z || 0; a.yaw = +q.yaw || 0;
       a.netSpd = +q.s || 0; a.netAir = q.og === 0; a.netSlide = q.sl === 1;
       a.vx = Math.sin(-a.yaw) * a.netSpd * 0.5; a.vz = -Math.cos(a.yaw) * a.netSpd * 0.5;
@@ -5957,7 +6040,7 @@ function netStep(dt) {
   if (sendT <= 0) {
     sendT = 0.05;
     const pres = { n: nick, ch: myChar, T: Math.round(performance.now()), x: me ? r2(me.x) : 0, y: me ? r2(me.y) : 0, z: me ? r2(me.z) : 0, yaw: me ? r2(me.yaw) : 0,
-      s: me ? r2(Math.hypot(me.vx, me.vz)) : 0, og: me && !me.onGround ? 0 : 1, sl: me && me.slideT > 0 ? 1 : 0, a: myActs, rdy: wantAgain, em: myEmote, acc: prof.equip, away: document.hidden ? 1 : 0, spec: spectating ? 1 : 0 };
+      s: me ? r2(Math.hypot(me.vx, me.vz)) : 0, og: me && !me.onGround ? 0 : 1, sl: me && me.slideT > 0 ? 1 : 0, a: myActs, rdy: wantAgain, em: myEmote, acc: prof.equip, away: document.hidden ? 1 : 0, spec: spectating ? 1 : 0, hp: amHost ? myPeer : hostPeer };
     pres.g = amHost ? packState() : null;
     groom.presence(pres).catch(() => {});
   }
@@ -5983,7 +6066,8 @@ function netQuality() {
   return age > 1500 ? '×' : (age > 400 || gGap > 400) ? '△' : '◎';
 }
 /* --- rematch with the same members --- */
-function humansHere() { const pm = peerMap(); return [...pm.values()].filter(p => p.kind === 'viewer'); }
+// the players of this match (someone who only wandered into the room can't hold up the rematch)
+function humansHere() { const pm = peerMap(); return [...pm.values()].filter(p => p.kind === 'viewer' && (p.sameTab || isPlayer(p.peer) || roster.has(p.peer))); }
 function rematchStatus() {
   const hs = humansHere();
   const ok = hs.filter(p => p.sameTab ? wantAgain === matchNo + 1 : (p.presence && p.presence.rdy === matchNo + 1)).length;
@@ -6013,6 +6097,9 @@ function startRematch() {
     extra = lob.peers().filter(p => !p.sameTab && p.presence && p.presence.st === 'wait').map(p => p.peer).slice(0, 5);
     if (extra.length) lob.presence({ mm: { room: groom.name, m: extra } }).catch(() => {});
   }
+  for (const a of agents) if (a.kind === 'remote') roster.add(a.id);
+  for (const x of extra) roster.add(x);
+  if (lob && lobKind === 'friend') for (const p of lob.peers()) if (!p.sameTab && p.presence && p.presence.st === 'watch') roster.add(p.peer);
   const fill = agents.some(a => a.kind === 'cpu') ? 4 : 0;
   waitMembers(extra, extra.length ? 4000 : 0, present => { if (state === 'result' && amHost) hostInit(present, fill); else rematchBusy = false; });
 }
@@ -6628,7 +6715,7 @@ function animate(dt) {
     if (p.smoke) { p.mesh.scale.multiplyScalar(1 + dt * 0.6); p.mesh.material.opacity = Math.max(0, Math.min(0.6, p.t * 0.4)); }
     p.mesh.position.x += p.vx * dt; p.mesh.position.y = Math.max(0.1, p.mesh.position.y + p.vy * dt); p.mesh.position.z += p.vz * dt;
     if (!p.smoke) p.mesh.material.opacity = Math.max(0, Math.min(1, p.t));
-    if (p.t <= 0) { scene.remove(p.mesh); particles.splice(k, 1); }
+    if (p.t <= 0) { disposeObj(p.mesh); particles.splice(k, 1); }
   }
   updateArc();
   updateTrail(dt);
@@ -6834,8 +6921,9 @@ function showcase(dt) {
 // keep an online match running while the tab is in the background (browsers slow this down)
 setInterval(() => {
   if (!document.hidden || mode !== 'online') return;
-  const now = performance.now(), dt = Math.min(0.25, (now - last) / 1000); last = now;
-  step(dt);
+  const now = performance.now(); let left = Math.min(0.25, (now - last) / 1000); last = now;
+  // in small steps like the normal frames, so fast players and the decoy can't pass through thin walls
+  while (left > 1e-4) { const d = Math.min(0.05, left); step(d); left -= d; }
 }, 100);
 
 /* ---------- menu wiring ---------- */
@@ -6907,14 +6995,14 @@ $('btnStart').addEventListener('click', () => { $('err').hidden = true; startPra
 $('btnOnline').addEventListener('click', () => { $('err').hidden = true; enterLobby('public'); });
 $('btnMakeRoom').addEventListener('click', () => {
   $('err').hidden = true;
-  const code = String(Math.floor(1000 + Math.random() * 9000));
+  const code = String(100000 + (crypto.getRandomValues(new Uint32Array(1))[0] % 900000));
   $('roomCode').value = code;
   enterLobby('friend', code);
 });
 $('btnJoinRoom').addEventListener('click', () => {
   const code = $('roomCode').value.replace(/[０-９]/g, c => String.fromCharCode(c.charCodeAt(0) - 0xFEE0)).replace(/\D/g, '');
   $('roomCode').value = code;
-  if (!validCode(code)) { $('err').hidden = false; $('err').textContent = xl('部屋番号は4けたの数字です。'); return; }
+  if (!validCode(code)) { $('err').hidden = false; $('err').textContent = xl('部屋番号は6けたの数字です。'); return; }
   $('err').hidden = true; enterLobby('friend', code);
 });
 $('roomCode').addEventListener('keydown', e => { if (e.key === 'Enter') $('btnJoinRoom').click(); });
@@ -6975,7 +7063,7 @@ $('btnEmote').addEventListener('click', e => { e.stopPropagation(); const o = $(
 for (const b of $('emotes').querySelectorAll('button')) b.addEventListener('click', e => { e.stopPropagation(); doEmote(+b.dataset.e); });
 for (const id of ['btnEmote', 'emotes']) for (const ev2 of ['pointerdown', 'touchstart', 'mousedown']) $(id).addEventListener(ev2, e => e.stopPropagation(), { passive: true });$('btnMusicMenu').addEventListener('click', () => setMusic(!music.on));
 addEventListener('pagehide', () => leaveOnline());
-{ const hm = /^#r(\d{4})$/.exec(location.hash); if (hm) { $('roomCode').value = hm[1]; $('err').hidden = false; $('err').textContent = xlf('部屋番号 {0} が入っています。キャラとニックネームを決めて「入る」を押してください。', hm[1]); } }
+{ const hm = /^#r(\d{6})$/.exec(location.hash); if (hm) { $('roomCode').value = hm[1]; $('err').hidden = false; $('err').textContent = xlf('部屋番号 {0} が入っています。キャラとニックネームを決めて「入る」を押してください。', hm[1]); } }
 requestAnimationFrame(frame);
 })();
 </script>

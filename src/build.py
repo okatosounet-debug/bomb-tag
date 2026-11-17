@@ -37,7 +37,8 @@ def esbuild(code, loader):
     if not cmd:
         return None
     try:
-        r = subprocess.run(cmd + ['--minify', '--loader=' + loader] + (['--target=es2019'] if loader == 'js' else []),
+        # --charset=utf8: keep Japanese text as it is (the default writes every character as \uXXXX, which makes the page much bigger)
+        r = subprocess.run(cmd + ['--minify', '--charset=utf8', '--loader=' + loader] + (['--target=es2019'] if loader == 'js' else []),
                            input=code.encode(), capture_output=True, timeout=120)
     except (subprocess.TimeoutExpired, OSError):
         return None
@@ -51,7 +52,9 @@ def esbuild(code, loader):
 if '--no-min' not in sys.argv and esbuild('let a=1', 'js') is not None:
     out = re.sub(r'<script>(.*?)</script>', lambda m: '<script>' + esbuild(m.group(1), 'js') + '</script>', out, flags=re.S)
     out = re.sub(r'<style>(.*?)</style>', lambda m: '<style>' + esbuild(m.group(1), 'css') + '</style>', out, flags=re.S)
-    out = re.sub(r'>\s*\n\s*<', '><', out)
+    # squeeze the space between HTML tags, but never inside a script (text in the code must stay as written)
+    parts = re.split(r'(<script\b.*?</script>)', out, flags=re.S)
+    out = ''.join(x if x.startswith('<script') else re.sub(r'>\s*\n\s*<', '><', x) for x in parts)
     print('minified')
 else:
     print('not minified (esbuild not found, or --no-min)')
